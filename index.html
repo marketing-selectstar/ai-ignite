@@ -12,6 +12,14 @@
     --off-white: #f7f6f3;
     --rule: rgba(10,10,10,0.13);
     --rule-inv: rgba(255,255,255,0.15);
+    --ignite-blue-950: #08152f;
+    --ignite-blue-900: #102a57;
+    --ignite-blue-700: #1d4f97;
+    --ignite-blue-500: #2a67b9;
+    --ignite-red-950: #24070c;
+    --ignite-red-900: #4f101b;
+    --ignite-red-700: #8c1d2e;
+    --ignite-red-500: #b52d41;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -112,7 +120,7 @@
   .hero-logotype-text {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(80px, 14vw, 180px);
-    line-height: .92; letter-spacing: -.01em;
+    line-height: 1.04; letter-spacing: -.01em;
     color: var(--white); display: block;
   }
   /* IGNITE word — fire gradient */
@@ -386,7 +394,19 @@
     height:160px; flex-shrink:0;
     display:flex; flex-direction:column; justify-content:space-between;
     padding:20px 20px;
+    position: relative;
+    overflow: hidden;
   }
+  .g-thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at top right, rgba(255,255,255,.18), transparent 34%),
+      linear-gradient(180deg, transparent 0%, rgba(10,10,10,.08) 100%);
+    pointer-events: none;
+  }
+  .g-thumb > * { position: relative; z-index: 1; }
   .g-badge { font-family:"DM Mono",monospace; font-size:9px; letter-spacing:.12em; color:rgba(255,255,255,.55); line-height:1.4; }
   .g-title { font-family:"Bebas Neue",sans-serif; font-size:22px; line-height:1.1; color:#fff; margin:8px 0 4px; }
   .g-sub { font-size:11px; color:rgba(255,255,255,.65); line-height:1.5; }
@@ -403,6 +423,12 @@
   .gtag-sem  { background:#fff8f0; color:#a04a00; border:1px solid #f5d0a0; }
   .gallery-year { font-family:"DM Mono",monospace; font-size:10px; letter-spacing:.2em; color:var(--black); margin:32px 0 12px; padding-bottom:10px; border-bottom:1px solid var(--rule); }
   .gallery-year:first-child { margin-top:48px; }
+  .tone-blue-1 { background: linear-gradient(135deg, #08152f 0%, #102a57 58%, #1d4f97 100%); }
+  .tone-blue-2 { background: linear-gradient(135deg, #0b1c3d 0%, #15356b 65%, #2a67b9 100%); }
+  .tone-blue-3 { background: linear-gradient(135deg, #071126 0%, #102142 52%, #1b457f 100%); }
+  .tone-red-1 { background: linear-gradient(135deg, #24070c 0%, #4f101b 62%, #8c1d2e 100%); }
+  .tone-red-2 { background: linear-gradient(135deg, #2b0910 0%, #641321 58%, #b52d41 100%); }
+  .tone-red-3 { background: linear-gradient(135deg, #1d0509 0%, #45101a 54%, #7d1c2c 100%); }
 
   /* ── SPEAKER PHOTO GRID (새 형식) ── */
   .spk-photo-grid {
@@ -440,24 +466,42 @@
     height: 80px;
     border-radius: 50%;
     overflow: hidden;
-    background: rgba(10,10,10,0.08);
+    background: linear-gradient(135deg, rgba(29,79,151,0.12), rgba(181,45,65,0.14));
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-    border: 2px solid rgba(10,10,10,0.08);
+    border: 2px solid rgba(29,79,151,0.16);
     flex-shrink: 0;
+    position: relative;
   }
   .spk-photo img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    display: none;
   }
   .spk-photo-placeholder {
-    font-size: 22px;
-    color: rgba(10,10,10,0.25);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .14em;
+    color: rgba(16,42,87,0.48);
     user-select: none;
+    text-transform: uppercase;
+  }
+  .spk-photo img[src]:not([src=""]) {
+    display: block;
+  }
+  .spk-photo img[src]:not([src=""]) + .spk-photo-placeholder {
+    display: none;
   }
   .spk-card .spk-org {
     font-family: 'DM Mono', monospace;
@@ -494,18 +538,28 @@
     height: 160px;
     border-radius: 50%;
     overflow: hidden;
-    background: rgba(10,10,10,0.08);
+    background: linear-gradient(135deg, rgba(29,79,151,0.14), rgba(181,45,65,0.16));
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 14px;
-    border: 2px solid rgba(10,10,10,0.08);
+    border: 2px solid rgba(29,79,151,0.18);
+    position: relative;
   }
   .spk-photo-lg img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    display: none;
+  }
+  .spk-photo-lg img[src]:not([src=""]) {
+    display: block;
+  }
+  .spk-photo-lg img[src]:not([src=""]) + .spk-photo-placeholder {
+    display: none;
   }
   .spk-featured-wrap .spk-org {
     font-family: 'DM Mono', monospace;
@@ -746,52 +800,51 @@
 
   <!--
   ✦ 사진 추가 방법:
-    각 .spk-photo 안에 있는 <span class="spk-photo-placeholder"> 를 지우고
-    <img src="사진파일.jpg" alt="이름"> 으로 교체하면 됩니다.
-    이미지는 정사각형에 가까울수록 잘 나옵니다.
-  ✦ 앤드류 응 대형 사진: .spk-photo-lg 안에 동일하게 교체
+    각 연사 카드의 <img src=""> 안에 사진 URL 주소를 넣으면 됩니다.
+    예) <img src="https://example.com/speaker.jpg" alt="홍길동 프로필 사진">
+    src가 비어 있으면 현재처럼 플레이스홀더가 보입니다.
   -->
 
   <!-- 1행: 7명 -->
   <div class="spk-photo-grid">
     <div class="spk-card">
-      <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+      <div class="spk-photo"><img src="" alt="김세염 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">SELECTSTAR</div>
       <div class="spk-name">김세염</div>
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+      <div class="spk-photo"><img src="" alt="신호욱 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">SELECTSTAR</div>
       <div class="spk-name">신호욱</div>
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+      <div class="spk-photo"><img src="" alt="이명복 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">제네시스랩</div>
       <div class="spk-name">이명복</div>
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+      <div class="spk-photo"><img src="" alt="조재영 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">오토피디아</div>
       <div class="spk-name">조재영</div>
       <div class="spk-role-sm">COO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+      <div class="spk-photo"><img src="" alt="박벌터 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">씨드로닉스</div>
       <div class="spk-name">박벌터</div>
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+      <div class="spk-photo"><img src="" alt="김지훈 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">SELECTSTAR</div>
       <div class="spk-name">김지훈</div>
       <div class="spk-role-sm">PO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+      <div class="spk-photo"><img src="" alt="이성배 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">deep daiv.</div>
       <div class="spk-name">이성배</div>
       <div class="spk-role-sm">리더</div>
@@ -803,37 +856,37 @@
     <div>
       <div class="spk-photo-row-inner">
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="성노윤 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">A.I.mtory</div>
           <div class="spk-name">성노윤</div>
           <div class="spk-role-sm">CEO</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="구태훈 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">AWS</div>
           <div class="spk-name">구태훈</div>
           <div class="spk-role-sm">ETP</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="진대연 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">뤼튼</div>
           <div class="spk-name">진대연</div>
           <div class="spk-role-sm">캐털리스트팀 팀장</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="박세호 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">쏘카</div>
           <div class="spk-name">박세호</div>
           <div class="spk-role-sm">기술기획 PM</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="주요한 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">쏘카</div>
           <div class="spk-name">주요한</div>
           <div class="spk-role-sm">Data PM</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="박경태 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">삼성 디스플레이</div>
           <div class="spk-name">박경태</div>
           <div class="spk-role-sm">AI 전략</div>
@@ -842,25 +895,25 @@
       <!-- 3행: 4명 (앤드류 응 아래) -->
       <div class="spk-photo-row-bottom">
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="오혜연 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">KAIST</div>
           <div class="spk-name">오혜연</div>
           <div class="spk-role-sm">교수</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="하정우 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">네이버</div>
           <div class="spk-name">하정우</div>
           <div class="spk-role-sm">AI 소장</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="안성진 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">KAIST</div>
           <div class="spk-name">안성진</div>
           <div class="spk-role-sm">교수</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><span class="spk-photo-placeholder">👤</span></div>
+          <div class="spk-photo"><img src="" alt="김현수 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">마이크로소프트</div>
           <div class="spk-name">김현수</div>
           <div class="spk-role-sm">AI 리더</div>
@@ -870,7 +923,7 @@
 
     <!-- 앤드류 응 — 대형 카드 -->
     <div class="spk-featured-wrap">
-      <div class="spk-photo-lg"><span class="spk-photo-placeholder" style="font-size:48px;">👤</span></div>
+      <div class="spk-photo-lg"><img src="" alt="앤드류 응 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">스탠포드 대학교 · Landing AI</div>
       <div class="spk-name">앤드류 응</div>
       <div class="spk-role-sm">CEO / 글로벌 AI 석학</div>
@@ -900,7 +953,7 @@
   <div class="gallery-grid">
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0a0f20 0%,#1a1035 100%);">
+      <div class="g-thumb tone-blue-1">
         <div class="g-badge">2025 · AI IGNITE</div>
         <div>
           <div class="g-title">AI Safety</div>
@@ -921,7 +974,7 @@
   <div class="gallery-grid">
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0a0a0a 0%,#1a0f00 60%,#2a1500 100%);">
+      <div class="g-thumb tone-red-1">
         <div class="g-badge">AI IGNITE × 금융보안원 · 2024.12.17</div>
         <div>
           <div class="g-title">금융 AI 안전성과<br>활용 동향</div>
@@ -937,7 +990,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0a0a18 0%,#0e1a30 100%);">
+      <div class="g-thumb tone-blue-2">
         <div class="g-badge">2024 AI/DX NETWORKING NIGHT</div>
         <div>
           <div class="g-title">AI 트렌드와<br>커리어 전략</div>
@@ -953,7 +1006,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0e1520 0%,#142030 100%);">
+      <div class="g-thumb tone-blue-3">
         <div class="g-badge">2024 · AI IGNITE</div>
         <div>
           <div class="g-title">자동차와 AI</div>
@@ -969,7 +1022,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0f1525 0%,#1a2540 100%);">
+      <div class="g-thumb tone-red-2">
         <div class="g-badge">Gen AI Korea 2024 · COEX Hall B2</div>
         <div>
           <div class="g-title">생성형 AI<br>레드팀 챌린지</div>
@@ -985,7 +1038,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0a1520 0%,#102030 100%);">
+      <div class="g-thumb tone-blue-1">
         <div class="g-badge">2024 · AI IGNITE</div>
         <div>
           <div class="g-title">금융권 LLM<br>도입 전략</div>
@@ -1001,7 +1054,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#100a20 0%,#1e1030 100%);">
+      <div class="g-thumb tone-red-3">
         <div class="g-badge">2024 · 세미나</div>
         <div>
           <div class="g-title">내 사업에<br>AI 도입하기</div>
@@ -1022,7 +1075,7 @@
   <div class="gallery-grid">
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0a1a10 0%,#0f2015 100%);">
+      <div class="g-thumb tone-red-1">
         <div class="g-badge">2023.07 · AI IGNITE</div>
         <div>
           <div class="g-title">우리 회사도<br>AI 도입할 수 있을까?</div>
@@ -1038,7 +1091,7 @@
     </a>
 
     <a class="g-card" href="https://winter-squash-b08.notion.site/AI-Talk-with-Andrew-Ng-c829850ffc498328a573016e9dc80905?source=copy_link" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#1a2a6e 0%,#2d3e9c 100%);">
+      <div class="g-thumb tone-blue-2">
         <div class="g-badge">2023.07.21 · KBS 별관공개홀 · 온·오프라인</div>
         <div>
           <div class="g-title">AI Talk<br>with Andrew Ng</div>
@@ -1058,7 +1111,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#150a20 0%,#200f30 100%);">
+      <div class="g-thumb tone-red-2">
         <div class="g-badge">2023.08 · AI IGNITE</div>
         <div>
           <div class="g-title">CAR TECH<br>AI 스타트업</div>
@@ -1074,7 +1127,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0a1520 0%,#102030 100%);">
+      <div class="g-thumb tone-blue-3">
         <div class="g-badge">2023.09 · AI IGNITE</div>
         <div>
           <div class="g-title">AI 면접<br>솔루션</div>
@@ -1090,7 +1143,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0a0f1a 0%,#0d1530 100%);">
+      <div class="g-thumb tone-blue-1">
         <div class="g-badge">2023.10 · AI/DX NETWORKING NIGHT</div>
         <div>
           <div class="g-title">AI 트렌드 &amp;<br>데이터 윤리</div>
@@ -1109,7 +1162,7 @@
     </a>
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#0f1a10 0%,#182518 100%);">
+      <div class="g-thumb tone-red-3">
         <div class="g-badge">2023.11 · AI IGNITE</div>
         <div>
           <div class="g-title">AI/DX<br>네트워킹 나이트</div>
@@ -1130,7 +1183,7 @@
   <div class="gallery-grid">
 
     <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb" style="background:linear-gradient(135deg,#1a1a2e 0%,#2a2a50 100%);">
+      <div class="g-thumb tone-blue-2">
         <div class="g-badge">2022.12 · AI LEADERS FORUM</div>
         <div>
           <div class="g-title">NeurIPS 2022<br>AI Leaders Forum</div>
@@ -1164,7 +1217,7 @@
 <!-- SELECTSTAR SECTION (black) -->
 <section class="s bg-black pad">
   <p class="mono-label mono-label-inv">HOSTED BY</p>
-  <img src="images/selectstar_logo_w.png" alt="Selectstar" class="host-logo">
+  <img src="images/selectstar_Logo_w.png" alt="Selectstar" class="host-logo">
   <p class="sec-body sec-body-inv">"신뢰할 수 있는 AI를 위한 선택" — AI 학습 데이터 구축부터 AI 검증·평가까지, 안심하고 배포할 수 있는 AI를 위한 엔드-투-엔드 솔루션을 제공합니다.</p>
   <div class="ss-wrap">
     <div class="ss-card"><div class="ss-tag">AI DATA</div><div class="ss-h">데이터 구축 & 스토어</div><div class="ss-p">고품질 AI 학습 데이터 구축, 데이터셋 스토어, 데이터바우처 지원</div><div class="ss-chips"><span class="ss-chip">데이터 구축</span><span class="ss-chip">데이터셋 스토어</span><span class="ss-chip">데이터바우처</span></div></div>
@@ -1189,7 +1242,7 @@
 <!-- FOOTER -->
 <footer>
   <div>
-    <img src="images/selectstar_Logo_w.png" alt="SELECTSTAR" class="footer-logo">
+  <img src="images/selectstar_logo_w.png" alt="SELECTSTAR" class="footer-logo">
     <div class="ft-l">SELECTSTAR / AI IGNITE</div>
     <div class="ft-sub">신뢰할 수 있는 AI를 위한 선택</div>
   </div>
