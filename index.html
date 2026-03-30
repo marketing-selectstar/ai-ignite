@@ -346,22 +346,31 @@
 
   /* ── FOOTER ── */
   footer {
-    background:var(--white); padding:44px 56px;
-    border-top:1px solid var(--rule);
+    background:var(--black); padding:44px 56px;
+    border-top:1px solid var(--rule-inv);
     display:flex; justify-content:space-between; align-items:center;
     position:relative; z-index:5;
   }
-  .ft-l { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.1em; color:var(--black); }
-  .ft-sub { font-size:13px; font-weight:500; margin-top:6px; color:var(--black); }
+  .ft-l { font-family:'DM Mono',monospace; font-size:12px; letter-spacing:.1em; color:var(--white); }
+  .ft-sub { font-size:13px; font-weight:500; margin-top:6px; color:rgba(255,255,255,.78); }
   .ft-r { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.06em; text-align:right; line-height:2.2; }
-  .ft-r a { color:var(--black); text-decoration:none; font-weight:500; }
+  .ft-r a { color:var(--white); text-decoration:none; font-weight:500; }
   .ft-r a:hover { opacity:.5; }
-  .ft-copy { color:var(--black); font-size:11px; font-family:'DM Mono',monospace; }
+  .ft-copy { color:rgba(255,255,255,.68); font-size:11px; font-family:'DM Mono',monospace; }
 
-  .logo-img {
-  height: 50px;
-  margin: 0;
-}
+  .host-logo {
+    height: 28px;
+    width: auto;
+    margin: 0 0 24px 0;
+    display: block;
+  }
+
+  .footer-logo {
+    height: 22px;
+    width: auto;
+    margin: 0 0 12px 0;
+    display: block;
+  }
 
 
   /* ── GALLERY CARDS ── */
@@ -1155,7 +1164,7 @@
 <!-- SELECTSTAR SECTION (black) -->
 <section class="s bg-black pad">
   <p class="mono-label mono-label-inv">HOSTED BY</p>
-    <img src="images/selectstar_Logo_w.png" alt="Selectstar" class="logo-img">
+  <img src="images/selectstar_Logo_w.png" alt="Selectstar" class="host-logo">
   <p class="sec-body sec-body-inv">"신뢰할 수 있는 AI를 위한 선택" — AI 학습 데이터 구축부터 AI 검증·평가까지, 안심하고 배포할 수 있는 AI를 위한 엔드-투-엔드 솔루션을 제공합니다.</p>
   <div class="ss-wrap">
     <div class="ss-card"><div class="ss-tag">AI DATA</div><div class="ss-h">데이터 구축 & 스토어</div><div class="ss-p">고품질 AI 학습 데이터 구축, 데이터셋 스토어, 데이터바우처 지원</div><div class="ss-chips"><span class="ss-chip">데이터 구축</span><span class="ss-chip">데이터셋 스토어</span><span class="ss-chip">데이터바우처</span></div></div>
@@ -1180,6 +1189,7 @@
 <!-- FOOTER -->
 <footer>
   <div>
+    <img src="images/selectstar_Logo_w.png" alt="SELECTSTAR" class="footer-logo">
     <div class="ft-l">SELECTSTAR / AI IGNITE</div>
     <div class="ft-sub">신뢰할 수 있는 AI를 위한 선택</div>
   </div>
