@@ -398,7 +398,7 @@
   }
   .g-card:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(0,0,0,.10); }
   .g-thumb {
-    height:160px; flex-shrink:0;
+    height:220px; flex-shrink:0;
     display:flex; flex-direction:column; justify-content:space-between;
     padding:20px 20px;
     position: relative;
@@ -414,10 +414,10 @@
     pointer-events: none;
   }
   .g-thumb > * { position: relative; z-index: 1; }
-  .g-badge { font-family:"DM Mono",monospace; font-size:16px; letter-spacing:.06em; color:rgba(255,255,255,.62); line-height:1.5; }
-  .g-title { font-family:"Bebas Neue",sans-serif; font-size:22px; line-height:1.1; color:#fff; margin:8px 0 4px; }
-  .g-sub { font-size:16px; color:rgba(255,255,255,.72); line-height:1.7; }
-  .g-date { font-family:"DM Mono",monospace; font-size:16px; color:rgba(255,255,255,.6); margin-top:8px; }
+  .g-badge { font-family:"DM Mono",monospace; font-size:12px; letter-spacing:.04em; color:rgba(255,255,255,.68); line-height:1.45; }
+  .g-title { font-family:"Bebas Neue",sans-serif; font-size:20px; line-height:1.08; color:#fff; margin:10px 0 6px; }
+  .g-sub { font-size:14px; color:rgba(255,255,255,.76); line-height:1.65; }
+  .g-date { font-family:"DM Mono",monospace; font-size:12px; color:rgba(255,255,255,.66); margin-top:10px; }
   .g-info { padding:18px 20px; background:var(--white); flex:1; display:flex; flex-direction:column; justify-content:space-between; }
   .g-info-title { font-size:16px; font-weight:700; color:var(--black); margin-bottom:8px; line-height:1.65; }
   .g-info-meta { font-family:"DM Mono",monospace; font-size:16px; letter-spacing:.03em; color:rgba(10,10,10,.52); margin-bottom:10px; }
@@ -441,36 +441,91 @@
   .speakers-sec {
     padding-top: 132px;
     padding-bottom: 132px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(29,79,151,.08), transparent 34%),
+      linear-gradient(180deg, #faf8f2 0%, #f4f1e7 100%);
+  }
+  .speakers-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 34px;
+  }
+  .speakers-kicker {
+    max-width: 760px;
+    font-size: 18px;
+    line-height: 1.85;
+    color: rgba(10,10,10,.68);
+  }
+  .speakers-shell {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 56px 54px 48px;
+    border: 1px solid rgba(10,10,10,.1);
+    border-radius: 28px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,.72) 100%);
+    box-shadow: 0 24px 70px rgba(10,10,10,.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .speakers-shell::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(181,45,65,.12) 0%, rgba(181,45,65,0) 68%);
+    pointer-events: none;
+  }
+  .speakers-shell::after {
+    content: "";
+    position: absolute;
+    bottom: -140px;
+    left: -80px;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(29,79,151,.14) 0%, rgba(29,79,151,0) 70%);
+    pointer-events: none;
   }
   .spk-photo-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 72px 28px;
-    margin-top: 76px;
+    gap: 88px 34px;
+    margin-top: 88px;
+    position: relative;
+    z-index: 1;
   }
   .spk-photo-row {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 80px;
+    gap: 96px;
     align-items: start;
-    margin-top: 72px;
+    margin-top: 88px;
+    position: relative;
+    z-index: 1;
   }
   .spk-photo-row-inner {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 72px 28px;
+    gap: 88px 34px;
   }
   .spk-photo-row-bottom {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 72px 28px;
-    margin-top: 72px;
+    gap: 88px 34px;
+    margin-top: 88px;
   }
   .spk-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-width: 0;
   }
   .spk-photo {
     width: 104px;
@@ -485,6 +540,7 @@
     border: 2px solid rgba(29,79,151,0.16);
     flex-shrink: 0;
     position: relative;
+    box-shadow: 0 16px 34px rgba(10,10,10,.08);
   }
   .spk-photo img {
     position: absolute;
@@ -520,22 +576,27 @@
     letter-spacing: .03em;
     color: rgba(10,10,10,0.55);
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 3px;
     word-break: keep-all;
+    line-height: 1.22;
+    max-width: 17ch;
   }
   .spk-card .spk-name {
     font-size: 18px;
     font-weight: 700;
     color: var(--black);
-    margin-bottom: 6px;
+    margin-bottom: 2px;
     word-break: keep-all;
+    line-height: 1.2;
+    max-width: 13ch;
   }
   .spk-card .spk-role-sm {
     font-size: 16px;
     font-weight: 400;
     color: rgba(10,10,10,0.55);
-    line-height: 1.6;
+    line-height: 1.3;
     word-break: keep-all;
+    max-width: 16ch;
   }
   .spk-featured-wrap {
     display: flex;
@@ -543,6 +604,13 @@
     align-items: center;
     text-align: center;
     min-width: 240px;
+    align-self: stretch;
+    justify-content: center;
+    padding: 34px 30px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(244,241,231,.9) 100%);
+    border: 1px solid rgba(10,10,10,.08);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.75);
   }
   .spk-photo-lg {
     width: 220px;
@@ -556,6 +624,7 @@
     margin-bottom: 22px;
     border: 2px solid rgba(29,79,151,0.18);
     position: relative;
+    box-shadow: 0 24px 40px rgba(10,10,10,.12);
   }
   .spk-photo-lg img {
     position: absolute;
@@ -577,18 +646,21 @@
     font-size: 16px;
     letter-spacing: .03em;
     color: rgba(10,10,10,0.55);
-    margin-bottom: 10px;
+    margin-bottom: 4px;
+    line-height: 1.22;
   }
   .spk-featured-wrap .spk-name {
     font-size: 28px;
     font-weight: 700;
     color: var(--black);
-    margin-bottom: 10px;
+    margin-bottom: 4px;
+    line-height: 1.18;
   }
   .spk-featured-wrap .spk-role-sm {
     font-size: 18px;
     color: rgba(10,10,10,0.55);
-    line-height: 1.7;
+    line-height: 1.28;
+    max-width: 18ch;
   }
   /* Speaker Recommendation CTA banner */
   .spk-cta-banner {
@@ -634,6 +706,7 @@
     .nav-links { display:none; }
     .hero,.pad,.pad-sm { padding-left:24px; padding-right:24px; }
     .speakers-sec { padding-top:104px; padding-bottom:104px; }
+    .speakers-shell { padding: 38px 28px 34px; border-radius: 22px; }
     hr.rule, hr.rule-inv { margin:0 24px; }
     .strip { grid-template-columns:repeat(2,1fr); }
     .strip-cell { border-right:none; border-bottom:1px solid var(--rule); }
@@ -644,7 +717,7 @@
     .spk-photo-row { grid-template-columns:1fr; gap:48px; margin-top:56px; }
     .spk-photo-row-inner { grid-template-columns:repeat(3,1fr); gap:48px 22px; }
     .spk-photo-row-bottom { grid-template-columns:repeat(3,1fr); gap:48px 22px; margin-top:48px; }
-    .spk-featured-wrap { margin-top:32px; }
+    .spk-featured-wrap { margin-top:32px; padding: 28px 24px; }
     .spk-cta-banner { flex-direction:column; align-items:flex-start; padding:32px 24px; }
     .gallery-grid { grid-template-columns:repeat(2,1fr); }
     .hero-bottom { flex-direction:column; gap:32px; align-items:flex-start; }
@@ -658,6 +731,7 @@
     .who-grid { grid-template-columns:1fr; }
     .who-cell:nth-child(3n) { border-right:1px solid var(--rule); }
     .spk-grid { grid-template-columns:1fr; }
+    .speakers-kicker { font-size: 16px; }
     .spk-photo-grid { grid-template-columns:repeat(3,1fr); gap:36px 18px; }
     .spk-photo-row-inner { grid-template-columns:repeat(2,1fr); gap:36px 18px; }
     .spk-photo-row-bottom { grid-template-columns:repeat(2,1fr); gap:36px 18px; }
@@ -807,8 +881,11 @@
 
 <!-- SPEAKERS (off-white) -->
 <section class="s bg-off pad speakers-sec" id="speakers">
-  <p class="mono-label">PAST SPEAKERS</p>
-  <h2 class="sec-title">함께한 연사들</h2>
+  <div class="speakers-head">
+    <p class="mono-label">PAST SPEAKERS</p>
+    <h2 class="sec-title">함께한 연사들</h2>
+    <p class="speakers-kicker">AI 업계를 이끄는 창업가, 연구자, 실무 리더들이 AI Ignite 무대에서 인사이트를 나눴습니다.</p>
+  </div>
 
   <!--
   ✦ 사진 추가 방법:
@@ -817,6 +894,7 @@
     src가 비어 있으면 현재처럼 플레이스홀더가 보입니다.
   -->
 
+  <div class="speakers-shell">
   <!-- 1행: 7명 -->
   <div class="spk-photo-grid">
     <div class="spk-card">
@@ -826,27 +904,27 @@
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><img src="" alt="신호욱 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-photo"><img src="images/speakers_17.png" alt="신호욱 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">SELECTSTAR</div>
       <div class="spk-name">신호욱</div>
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><img src="" alt="이명복 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-photo"><img src="images/speakers_21.png" alt="이영복 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">제네시스랩</div>
-      <div class="spk-name">이명복</div>
+      <div class="spk-name">이영복</div>
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><img src="" alt="조재영 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-photo"><img src="images/speakers_20.png" alt="조재영 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">오토피디아</div>
       <div class="spk-name">조재영</div>
       <div class="spk-role-sm">COO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><img src="" alt="박벌터 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-photo"><img src="images/speakers_19.png" alt="박별터 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">씨드로닉스</div>
-      <div class="spk-name">박벌터</div>
+      <div class="spk-name">박별터</div>
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
@@ -856,10 +934,10 @@
       <div class="spk-role-sm">홍콩과학기술대학교 겸임교수</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><img src="" alt="이성배 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">deep daiv.</div>
-      <div class="spk-name">이성배</div>
-      <div class="spk-role-sm">리더</div>
+      <div class="spk-photo"><img src="images/speakers_06.png" alt="박지호 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">신한은행</div>
+      <div class="spk-name">박지호</div>
+      <div class="spk-role-sm">디지털혁신단 LLM 모델 Part Leader</div>
     </div>
   </div>
 
@@ -868,13 +946,13 @@
     <div>
       <div class="spk-photo-row-inner">
         <div class="spk-card">
-          <div class="spk-photo"><img src="" alt="성노윤 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+          <div class="spk-photo"><img src="images/speakers_12.png" alt="성노윤 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">A.I.mtory</div>
           <div class="spk-name">성노윤</div>
           <div class="spk-role-sm">CEO</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><img src="" alt="구태훈 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+          <div class="spk-photo"><img src="images/speakers_02.png" alt="구태훈 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">AWS</div>
           <div class="spk-name">구태훈</div>
           <div class="spk-role-sm">ETP</div>
@@ -886,19 +964,19 @@
           <div class="spk-role-sm">캐털리스트팀 팀장</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><img src="" alt="박세호 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+          <div class="spk-photo"><img src="images/speakers_09.png" alt="박세준 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">쏘카</div>
-          <div class="spk-name">박세호</div>
+          <div class="spk-name">박세준</div>
           <div class="spk-role-sm">기술기획 PM</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><img src="" alt="주요한 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+          <div class="spk-photo"><img src="images/speakers_08.png" alt="주요한 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">쏘카</div>
           <div class="spk-name">주요한</div>
           <div class="spk-role-sm">Data PM</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><img src="" alt="박경태 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+          <div class="spk-photo"><img src="images/speakers_01.png" alt="박경태 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">삼성 디스플레이</div>
           <div class="spk-name">박경태</div>
           <div class="spk-role-sm">AI 전략</div>
@@ -925,7 +1003,7 @@
           <div class="spk-role-sm">교수</div>
         </div>
         <div class="spk-card">
-          <div class="spk-photo"><img src="" alt="김현수 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+          <div class="spk-photo"><img src="images/speakers_18.png" alt="김현수 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
           <div class="spk-org">마이크로소프트</div>
           <div class="spk-name">김현수</div>
           <div class="spk-role-sm">AI 리더</div>
@@ -950,6 +1028,7 @@
       <p class="spk-cta-body">AI 분야의 인사이트를 나눌 연사를 찾습니다.<br>직접 지원하거나 적합한 분을 추천해주세요.</p>
     </div>
     <a class="btn-white spk-cta-btn" href="https://v7u8lcgxdir.typeform.com/to/PMtEhzE2" target="_blank">연사 지원 / 추천하기 →</a>
+  </div>
   </div>
 </section>
 
