@@ -82,43 +82,42 @@
   /* ── HERO ── */
   .hero {
     position: relative; min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 56px 72px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 56px 72px;
     background:
-      radial-gradient(circle at 50% 100%, rgba(120,34,10,.18), transparent 34%),
       linear-gradient(180deg, #05010b 0%, #07010d 58%, #0a020e 100%);
     overflow: hidden;
   }
 
   /* Ember glow rising from bottom */
   .ember-glow {
-    position: absolute; bottom: -120px; left: 50%;
+    position: absolute; bottom: -160px; left: 50%;
     transform: translateX(-50%);
-    width: 120vw; height: 600px;
+    width: 110vw; height: 640px;
     background: radial-gradient(ellipse at 50% 100%,
-      rgba(255,80,0,0.30) 0%,
-      rgba(255,140,0,0.14) 38%,
-      rgba(255,60,0,0.04) 62%,
-      transparent 75%);
+      rgba(255,190,95,.2) 0%,
+      rgba(235,150,45,.1) 30%,
+      rgba(210,120,30,.04) 52%,
+      transparent 68%);
     pointer-events: none; z-index: 2;
-    animation: emberPulse 5s ease-in-out infinite alternate;
+    animation: emberPulse 7s ease-in-out infinite alternate;
+  }
+  .hero-glow-2 {
+    position: absolute; top: -80px; left: -120px;
+    width: 560px; height: 560px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,190,110,.035) 0%, transparent 65%);
+    pointer-events: none; z-index: 1;
+    animation: emberPulse 9s ease-in-out 2s infinite alternate;
   }
   @keyframes emberPulse {
-    from { opacity: .5; transform: translateX(-50%) scaleY(1); }
-    to   { opacity: .72;   transform: translateX(-50%) scaleY(1.12); }
+    from { opacity: .42; }
+    to   { opacity: .62; }
   }
-
-  /* Orbital rings */
-  .rings {
-    position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
-    width: 580px; height: 580px; pointer-events: none; z-index: 2;
-  }
-  .rings svg { width: 100%; height: 100%; }
 
   /* Hero text — above canvas */
-  .hero-content { position: relative; z-index: 3; }
+  .hero-content { position: relative; z-index: 3; margin-bottom: 20px; }
   .hero-eyebrow {
-    font-family: 'DM Mono', monospace; font-size: clamp(18px, 2vw, 24px); letter-spacing: .18em;
+    font-family: 'DM Mono', monospace; font-size: 14px; letter-spacing: .18em;
     color: var(--white); margin-bottom: 32px;
     opacity: 0; animation: up .65s ease .2s forwards;
   }
@@ -127,23 +126,19 @@
   }
   .hero-logotype-text {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(82px, 18vw, 276px);
-    line-height: 1.08; letter-spacing: -.015em;
+    font-size: clamp(108px, 20vw, 228px);
+    line-height: .9; letter-spacing: -.01em;
     color: var(--white); display: block;
     font-weight: 400;
   }
   /* IGNITE word — fire gradient */
   .ignite-word {
-    background: linear-gradient(180deg, #FFC200 0%, #FF6A00 45%, #FF2200 100%);
+    background: linear-gradient(160deg, #ffffff 0%, #ffd580 28%, #ff9020 68%, #e05010 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .flame-wrap { display: inline-block; position: relative; }
-  .flame-icon {
-    position: absolute; top: -.18em; left: 50%; transform: translateX(-50%);
-    font-size: .28em; line-height: 1;
-    filter: none;
-  }
+  .flame-wrap { display: inline; position: relative; }
+  .flame-icon { display: none; }
   .hero-bottom {
     display: flex; align-items: flex-end; justify-content: space-between;
     margin-top: 48px;
@@ -680,6 +675,23 @@
   .spk-featured-wrap .spk-role-sm {
     display: none;
   }
+  .spk-featured-desc {
+    margin-top: 14px;
+    max-width: 34ch;
+    font-size: 16px;
+    line-height: 1.72;
+    color: rgba(10,10,10,.72);
+    word-break: keep-all;
+  }
+  .spk-featured-desc a {
+    color: #0c5fdb;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(12,95,219,.24);
+  }
+  .spk-featured-desc a:hover {
+    border-bottom-color: rgba(12,95,219,.65);
+  }
   /* Speaker Recommendation CTA banner */
   .spk-cta-banner {
     display: flex;
@@ -731,8 +743,9 @@
     .nav-links { display:none; }
     .hero,.pad,.pad-sm { padding-left:24px; padding-right:24px; }
     .hero { padding-top: 112px; padding-bottom: 56px; min-height: auto; }
-    .hero-eyebrow { font-size: 18px; letter-spacing: .14em; margin-bottom: 22px; }
-    .hero-logotype-text { font-size: clamp(72px, 17vw, 180px); line-height: 1.04; }
+    .hero-content { margin-bottom: 16px; }
+    .hero-eyebrow { font-size: 14px; letter-spacing: .14em; margin-bottom: 22px; }
+    .hero-logotype-text { font-size: clamp(92px, 20vw, 206px); line-height: .94; }
     .hero-desc { font-size: 17px; line-height: 1.8; max-width: 100%; }
     .networking-badge { font-size: 15px; letter-spacing: .12em; }
     .host-row { font-size: 15px; }
@@ -780,7 +793,6 @@
     footer { flex-direction:column; gap:20px; }
     .ft-r { text-align:left; }
     .partner { flex:1 1 33%; }
-    .rings { width:260px; height:260px; right:-36px; top: 24%; }
   }
   @media (max-width:600px){
     nav {
@@ -796,8 +808,9 @@
     }
     .nav-cta { display: none; }
     .hero { padding-top: 100px; padding-bottom: 40px; }
+    .hero-content { margin-bottom: 10px; }
     .hero-eyebrow { font-size: 14px; letter-spacing: .1em; margin-top: 80px; margin-bottom: 18px; }
-    .hero-logotype-text { font-size: clamp(58px, 18vw, 108px); line-height: 1.02; }
+    .hero-logotype-text { font-size: clamp(82px, 20vw, 138px); line-height: .94; }
     .hero-bottom { gap: 24px; margin-top: 28px; }
     .hero-desc { font-size: 16px; line-height: 1.7; padding-left: 16px; }
     .hero-meta { gap: 12px; }
@@ -819,7 +832,6 @@
       align-items: stretch;
       gap: 10px;
     }
-    .rings { width:180px; height:180px; right:-24px; top: 18%; opacity: .7; }
     .ticker-item { font-size: 16px; padding: 0 28px; }
     .strip { grid-template-columns: 1fr; }
     .strip-cell { padding: 28px 18px; }
@@ -849,6 +861,7 @@
     .spk-card .spk-org, .spk-featured-wrap .spk-org { font-size: 14px; margin-bottom: 3px; }
     .spk-card .spk-name { font-size: 17px; line-height: 1.4; }
     .spk-featured-wrap .spk-name { font-size: 16px; line-height: 1.35; max-width: 22ch; }
+    .spk-featured-desc { font-size: 15px; line-height: 1.68; max-width: 100%; }
     .spk-featured-wrap { padding: 24px 18px; }
     .spk-cta-banner { padding: 28px 20px; margin: 48px 4px 0; border-radius: 20px; }
     .spk-cta-heading { font-size: clamp(28px, 10vw, 38px); margin-bottom: 10px; }
@@ -892,22 +905,7 @@
 <section class="hero">
   <canvas id="fire-canvas"></canvas>
   <div class="ember-glow"></div>
-
-  <!-- Orbital rings -->
-  <div class="rings">
-    <svg viewBox="0 0 580 580" fill="none">
-      <ellipse cx="290" cy="290" rx="255" ry="108" stroke="#ffffff" stroke-width="0.9" opacity="0.17" transform="rotate(-22 290 290)"/>
-      <ellipse cx="290" cy="290" rx="210" ry="84" stroke="#ffffff" stroke-width="0.9" opacity="0.13" transform="rotate(-22 290 290)"/>
-      <ellipse cx="290" cy="290" rx="168" ry="64" stroke="#ffffff" stroke-width="0.9" opacity="0.09" transform="rotate(-22 290 290)"/>
-      <g transform="translate(368,124)">
-        <line x1="0" y1="-28" x2="0" y2="28" stroke="#ffffff" stroke-width="1.1" opacity="0.55"/>
-        <line x1="-28" y1="0" x2="28" y2="0" stroke="#ffffff" stroke-width="1.1" opacity="0.55"/>
-        <line x1="-18" y1="-18" x2="18" y2="18" stroke="#ffffff" stroke-width="0.7" opacity="0.38"/>
-        <line x1="18" y1="-18" x2="-18" y2="18" stroke="#ffffff" stroke-width="0.7" opacity="0.38"/>
-        <circle cx="0" cy="0" r="2.5" fill="#ffffff" opacity="0.45"/>
-      </g>
-    </svg>
-  </div>
+  <div class="hero-glow-2"></div>
 
   <div class="hero-content">
     <p class="hero-eyebrow">AI 사업개발 커뮤니티 네트워킹 토크쇼</p>
@@ -926,7 +924,6 @@
         <span class="networking-badge">AI/DX NETWORKING NIGHT</span>
         <div class="hero-actions">
           <a class="btn-white" href="#register">참가 신청 →</a>
-          <a class="btn-outline-white" href="#about">소개 보기</a>
         </div>
         <div class="host-row">
           <div class="host-dot"></div>
@@ -1030,9 +1027,10 @@
   <div class="speakers-grid">
     <div class="spk-featured-wrap">
       <div class="spk-photo-lg"><img src="images/speakers_13.png" alt="앤드류 응 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">스탠포드 대학교 · Landing AI</div>
-      <div class="spk-name">앤드류 응, CEO / 글로벌 AI 석학</div>
-      <div class="spk-role-sm">CEO / 글로벌 AI 석학</div>
+      <div class="spk-org">Stanford University · Landing AI CEO · AI Fund 창립자</div>
+      <div class="spk-name">앤드류 응, CEO</div>
+      <div class="spk-role-sm">CEO</div>
+      <p class="spk-featured-desc">2023 AI Ignite 최대 규모 연사<br>(과기정통부·NIPA 후원)</p>
     </div>
 
     <div class="spk-card">
@@ -1548,10 +1546,10 @@ function FireCanvas(canvas, opts) {
   let W, H, particles = [];
 
   const COLORS = [
-    'rgba(255,200,0,',
-    'rgba(255,130,0,',
-    'rgba(255,60,0,',
-    'rgba(220,30,0,'
+    'rgba(255,195,110,',
+    'rgba(245,185,90,',
+    'rgba(225,145,55,',
+    'rgba(210,125,35,'
   ];
 
   function resize() {
@@ -1562,12 +1560,12 @@ function FireCanvas(canvas, opts) {
   function spawn() {
     return {
       x: Math.random() * W,
-      y: H + 16,
-      vx: (Math.random() - 0.5) * 0.9,
-      vy: -(Math.random() * 2.8 + 1.2),
+      y: H + 14,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: -(Math.random() * 2.2 + 0.8),
       life: 1,
-      decay: Math.random() * 0.007 + 0.004,
-      r: Math.random() * 20 + 6,
+      decay: Math.random() * 0.006 + 0.003,
+      r: Math.random() * 16 + 4,
       color: COLORS[Math.floor(Math.random() * COLORS.length)]
     };
   }
@@ -1585,18 +1583,19 @@ function FireCanvas(canvas, opts) {
 
   (function frame() {
     ctx.clearRect(0, 0, W, H);
-    if (particles.length < COUNT + 40) particles.push(spawn());
+    if (particles.length < COUNT + 30) particles.push(spawn());
 
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
       p.x += p.vx;
       p.y += p.vy;
-      p.vx += (Math.random() - 0.5) * 0.12;
+      p.vx += (Math.random() - 0.5) * 0.08;
       p.life -= p.decay;
 
       if (p.life <= 0) { particles[i] = spawn(); continue; }
 
-      const alpha = p.life * 0.55;
+      const heightFactor = Math.max(0, p.y / H);
+      const alpha = p.life * 0.22 * heightFactor;
       const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
       g.addColorStop(0, p.color + alpha + ')');
       g.addColorStop(1, p.color + '0)');
@@ -1610,7 +1609,7 @@ function FireCanvas(canvas, opts) {
 }
 
 /* Hero canvas — lighter, floats upward through white bg */
-FireCanvas(document.getElementById('fire-canvas'), { count: 160 });
+FireCanvas(document.getElementById('fire-canvas'), { count: 96 });
 
 /* CTA canvas — denser, dark bg */
 FireCanvas(document.getElementById('cta-canvas'), { count: 200 });
