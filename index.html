@@ -365,18 +365,23 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     font-family:'Pretendard',sans-serif;
     font-size:16px;
     letter-spacing:0;
-    padding:8px 16px;
+    padding:10px 18px;
     border:1px solid rgba(255,255,255,.35);
     color:var(--white);
     font-weight:600;
     text-decoration: none;
     border-radius: 10px;
-    transition: background .2s, border-color .2s, transform .2s;
+    box-shadow: 0 8px 20px rgba(0,0,0,.16);
+    cursor: pointer;
+    transition: background .2s, border-color .2s, transform .2s, box-shadow .2s;
   }
-  .ss-chip:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.55); transform: translateY(-1px); }
+  .ss-chip::after { content: '->'; font-size: 14px; opacity: .9; }
+  .ss-chip:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.72); transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,.22); }
+  .ss-chip:focus-visible { outline: 2px solid rgba(255,255,255,.72); outline-offset: 2px; }
 
   /* ── CTA (black bg + fire) ── */
   .cta-sec {
@@ -1170,7 +1175,7 @@
       <h3 class="spk-cta-heading">연사 지원 및 추천</h3>
       <p class="spk-cta-body">AI 분야의 인사이트를 나눌 연사를 찾습니다.<br>직접 지원하거나 적합한 분을 추천해주세요.</p>
     </div>
-    <a class="btn-white spk-cta-btn" href="https://v7u8lcgxdir.typeform.com/to/PMtEhzE2" target="_blank">연사 지원 / 추천하기 →</a>
+    <a class="btn-white spk-cta-btn" href="https://tally.so/r/KYL9rK" target="_blank">연사 지원 / 추천하기 →</a>
   </div>
   </div>
 </section>
@@ -1351,22 +1356,7 @@
       </div>
     </a>
 
-    <a class="g-card" href="https://youtu.be/vC33uv5v3Uk?si=RyK1O2KNu_kBYnqe" target="_blank">
-      <div class="g-thumb tone-red-3">
-        <div class="g-badge">2023.11 · AI IGNITE</div>
-        <div>
-          <div class="g-title">스포츠로<br>하나 되는 AI</div>
-          <div class="g-sub">AI와 스포츠 산업의 만남<br>11월 특별 토크 세션</div>
-        </div>
-        <div class="g-date">2023.11 · 오프라인</div>
-      </div>
-      <div class="g-info">
-        <div class="g-info-title">[11월] 스포츠로 하나 되는 AI</div>
-        <div class="g-info-meta">November, 2023</div>
-      </div>
-    </a>
-
-    <a class="g-card" href="#" target="_blank">
+    <a class="g-card" href="https://www.youtube.com/watch?v=vHt-pjdynG4&t=14s" target="_blank">
       <div class="g-thumb tone-blue-1">
         <div class="g-badge">2023.10 · AI/DX NETWORKING NIGHT</div>
         <div>
@@ -1378,6 +1368,21 @@
       <div class="g-info">
         <div class="g-info-title">[10월] AI/DX Networking Night · AI 토크쇼 & 파티</div>
         <div class="g-info-meta">October, 2023</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://event-us.kr/selectstar/event/54245" target="_blank">
+      <div class="g-thumb tone-red-3">
+        <div class="g-badge">2023.01.17 · AI NODAJI</div>
+        <div>
+          <div class="g-title">2023년<br>트렌드와 AI</div>
+          <div class="g-sub">모두연과 함께하는<br>신년 네트워킹 파티</div>
+        </div>
+        <div class="g-date">2023.01.17 · 오프라인</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[1월] 2023년 트렌드와 AI</div>
+        <div class="g-info-meta">January 17, 2023</div>
       </div>
     </a>
 
@@ -1411,36 +1416,6 @@
       </div>
     </a>
 
-    <a class="g-card" href="https://www.youtube.com/watch?v=MGePMK1Pdb8" target="_blank">
-      <div class="g-thumb tone-red-1">
-        <div class="g-badge">2023.07 · AI IGNITE</div>
-        <div>
-          <div class="g-title">우리 회사도<br>AI 도입할 수 있을까?</div>
-          <div class="g-sub">1억 3천만건 AI 데이터로 보는<br>산업계 AI 적용 트렌드</div>
-        </div>
-        <div class="g-date">2023.07 · 오프라인</div>
-      </div>
-      <div class="g-info">
-        <div class="g-info-title">[7월] 우리 회사도 AI 도입할 수 있을까?</div>
-        <div class="g-info-meta">July, 2023</div>
-      </div>
-    </a>
-
-    <a class="g-card" href="https://www.youtube.com/watch?v=vC33uv5v3Uk&t=1s" target="_blank">
-      <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2023.01.19 · AI NODAJI</div>
-        <div>
-          <div class="g-title">스포츠로<br>하나 되는 AI</div>
-          <div class="g-sub">Full Video<br>AI NODAJI</div>
-        </div>
-        <div class="g-date">2023.01.19 · YOUTUBE</div>
-      </div>
-      <div class="g-info">
-        <div class="g-info-title">[1월] 스포츠로 하나 되는 AI</div>
-        <div class="g-info-meta">January 19, 2023</div>
-      </div>
-    </a>
-
   </div>
 
   <div class="gallery-year">2022</div>
@@ -1458,6 +1433,21 @@
       <div class="g-info">
         <div class="g-info-title">[12월] NeurIPS 2022 AI Leaders Forum</div>
         <div class="g-info-meta">December, 2022</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://youtu.be/vC33uv5v3Uk?si=RyK1O2KNu_kBYnqe" target="_blank">
+      <div class="g-thumb tone-red-3">
+        <div class="g-badge">2022.11 · AI NODAJI</div>
+        <div>
+          <div class="g-title">스포츠로<br>하나 되는 AI</div>
+          <div class="g-sub">AI와 스포츠 산업의 만남<br>11월 특별 토크 세션</div>
+        </div>
+        <div class="g-date">2022.11 · 오프라인</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[11월] 스포츠로 하나 되는 AI</div>
+        <div class="g-info-meta">November, 2022</div>
       </div>
     </a>
 
@@ -1506,6 +1496,21 @@
       </div>
     </a>
 
+    <a class="g-card" href="https://www.youtube.com/watch?v=MGePMK1Pdb8" target="_blank">
+      <div class="g-thumb tone-red-1">
+        <div class="g-badge">2022.07 · AI NODAJI</div>
+        <div>
+          <div class="g-title">우리 회사도<br>AI 도입할 수 있을까?</div>
+          <div class="g-sub">1억 3천만건 AI 데이터로 보는<br>산업계 AI 적용 트렌드</div>
+        </div>
+        <div class="g-date">2022.07 · 오프라인</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[7월] 우리 회사도 AI 도입할 수 있을까?</div>
+        <div class="g-info-meta">July, 2022</div>
+      </div>
+    </a>
+
   </div>
 
 </section>
@@ -1528,8 +1533,8 @@
   <img src="images/selectstar_logo_w.png" alt="Selectstar" class="host-logo">
   <p class="sec-body sec-body-inv">"신뢰할 수 있는 AI를 위한 선택" — AI 학습 데이터 구축부터 AI 검증·평가까지, 안심하고 배포할 수 있는 AI를 위한 엔드-투-엔드 솔루션을 제공합니다.</p>
   <div class="ss-wrap">
-    <div class="ss-card"><div class="ss-tag">AI DATA</div><div class="ss-h">데이터 구축 & 스토어</div><div class="ss-p">고품질 AI 학습 데이터 구축, 데이터셋 스토어, 데이터바우처 지원</div><div class="ss-chips"><a class="ss-chip" href="https://selectstar.ai/data-build/" target="_blank" rel="noopener noreferrer">데이터 구축</a><a class="ss-chip" href="https://selectstar.ai/datasetstore" target="_blank" rel="noopener noreferrer">데이터셋 스토어</a><a class="ss-chip" href="https://selectstar.ai/datavoucher" target="_blank" rel="noopener noreferrer">데이터바우처</a></div></div>
-    <div class="ss-card"><div class="ss-tag">AI EVALUATION</div><div class="ss-h">AI 검증 & 안전성 평가</div><div class="ss-p">LLM 서비스의 신뢰성 검증 자동화, AI 레드팀, 검증 컨설팅</div><div class="ss-chips"><a class="ss-chip" href="https://selectstar.ai/datumo-eval/" target="_blank" rel="noopener noreferrer">Datumo Eval</a><a class="ss-chip" href="https://selectstar.ai/ai-red-team/" target="_blank" rel="noopener noreferrer">AI 레드팀</a><a class="ss-chip" href="https://selectstar.ai/ai-master/" target="_blank" rel="noopener noreferrer">AI-MASTER</a></div></div>
+    <div class="ss-card"><div class="ss-tag">AI DATA</div><div class="ss-h">데이터 구축 & 스토어</div><div class="ss-p">고품질 AI 학습 데이터 구축, 데이터셋 스토어, 데이터바우처 지원</div><div class="ss-chips"><a class="ss-chip" href="https://selectstar.ai/data-build/?utm_source=website(own)&utm_medium=cta&utm_campaign=ai_ignite&utm_content=&utm_term=" target="_blank" rel="noopener noreferrer">데이터 구축</a><a class="ss-chip" href="https://selectstar.ai/datasetstore/?utm_source=website(own)&utm_medium=cta&utm_campaign=ai_ignite&utm_content=&utm_term=" target="_blank" rel="noopener noreferrer">데이터셋 스토어</a><a class="ss-chip" href="https://selectstar.ai/datavoucher/?utm_source=website(own)&utm_medium=cta&utm_campaign=ai_ignite&utm_content=&utm_term=" target="_blank" rel="noopener noreferrer">데이터바우처</a></div></div>
+    <div class="ss-card"><div class="ss-tag">AI EVALUATION</div><div class="ss-h">AI 검증 & 안전성 평가</div><div class="ss-p">LLM 서비스의 신뢰성 검증 자동화, AI 레드팀, 검증 컨설팅</div><div class="ss-chips"><a class="ss-chip" href="https://selectstar.ai/ai-safety-consulting/?utm_source=website(own)&utm_medium=cta&utm_campaign=ai_ignite&utm_content=&utm_term=" target="_blank" rel="noopener noreferrer">AI Safety Consulting</a><a class="ss-chip" href="https://selectstar.ai/de/?utm_source=website(own)&utm_medium=cta&utm_campaign=ai_ignite&utm_content=&utm_term=" target="_blank" rel="noopener noreferrer">Datumo Eval</a><a class="ss-chip" href="https://selectstar.ai/ai-red-team/?utm_source=website(own)&utm_medium=cta&utm_campaign=ai_ignite&utm_content=&utm_term=" target="_blank" rel="noopener noreferrer">AI 레드팀</a><a class="ss-chip" href="https://selectstar.ai/ai-master/?utm_source=website(own)&utm_medium=cta&utm_campaign=ai_ignite&utm_content=&utm_term=" target="_blank" rel="noopener noreferrer">AI-MASTER</a></div></div>
   </div>
 </section>
 
