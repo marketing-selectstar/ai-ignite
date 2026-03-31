@@ -282,7 +282,7 @@
   .check-num { font-family:'Pretendard',sans-serif; font-size:16px; color:var(--black); min-width:36px; font-weight:700; }
   .check-txt { font-size:18px; font-weight:700; line-height:1.55; color:var(--black); }
 
-  .info-card { background:linear-gradient(180deg, #00001a 0%, #04113b 100%); color:var(--white); padding:48px; }
+  .info-card { background:linear-gradient(180deg, #00001a 0%, #020826 58%, #071b46 100%); color:var(--white); padding:48px; border-radius: 18px; }
   .info-mono {
     font-family:'Pretendard',sans-serif; font-size:16px; letter-spacing:.08em;
     color:var(--white); margin-bottom:6px; font-weight:500;
@@ -318,7 +318,7 @@
   .tl-tag {
     display:inline-block; font-family:'DM Mono', monospace;
     font-size:16px; letter-spacing:.02em; padding:7px 14px;
-    border:1px solid var(--white); color:var(--white); margin-bottom:10px;
+    border:1px solid var(--white); color:var(--white); margin-bottom:10px; border-radius: 8px;
   }
   .tl-h { font-size:21px; font-weight:700; margin-bottom:8px; line-height:1.45; color:var(--white); }
   .tl-b { font-size:16px; font-weight:400; line-height:1.85; color:var(--white); }
@@ -361,7 +361,22 @@
   .ss-h { font-size:22px; font-weight:700; margin-bottom:12px; line-height:1.4; color:var(--white); }
   .ss-p { font-size:16px; font-weight:400; line-height:1.9; color:var(--white); }
   .ss-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
-  .ss-chip { font-family:'Pretendard',sans-serif; font-size:16px; letter-spacing:0; padding:8px 16px; border:1px solid rgba(255,255,255,.35); color:var(--white); font-weight:600; }
+  .ss-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family:'Pretendard',sans-serif;
+    font-size:16px;
+    letter-spacing:0;
+    padding:8px 16px;
+    border:1px solid rgba(255,255,255,.35);
+    color:var(--white);
+    font-weight:600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background .2s, border-color .2s, transform .2s;
+  }
+  .ss-chip:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.55); transform: translateY(-1px); }
 
   /* ── CTA (black bg + fire) ── */
   .cta-sec {
@@ -419,6 +434,7 @@
     transition:transform .22s, box-shadow .22s;
     display:flex; flex-direction:column;
     text-decoration:none; color:inherit;
+    border-radius: 16px;
   }
   .g-card:hover { transform:translateY(-3px); box-shadow:0 12px 34px rgba(12,95,219,.16); }
   .g-thumb {
@@ -427,6 +443,7 @@
     padding:20px 20px;
     position: relative;
     overflow: hidden;
+    border-radius: 16px 16px 0 0;
   }
   .g-thumb::after {
     content: "";
@@ -442,24 +459,17 @@
   .g-title { font-family:"Pretendard",sans-serif; font-size:20px; line-height:1.12; color:#fff; margin:10px 0 6px; font-weight:800; letter-spacing:-.02em; }
   .g-sub { font-size:14px; color:rgba(255,255,255,.76); line-height:1.65; font-weight:500; }
   .g-date { font-family:"Pretendard",sans-serif; font-size:12px; color:rgba(255,255,255,.66); margin-top:10px; font-weight:600; }
-  .g-info { padding:18px 20px; background:var(--white); flex:1; display:flex; flex-direction:column; justify-content:space-between; }
+  .g-info { padding:18px 20px; background:var(--white); flex:1; display:flex; flex-direction:column; justify-content:space-between; border-radius: 0 0 16px 16px; }
   .g-info-title { font-size:16px; font-weight:700; color:var(--black); margin-bottom:8px; line-height:1.65; }
   .g-info-meta { font-family:"Pretendard",sans-serif; font-size:16px; letter-spacing:0; color:rgba(10,10,10,.52); margin-bottom:10px; }
-  .g-tags { display:flex; gap:4px; flex-wrap:wrap; }
-  .gtag { font-size:16px; font-weight:600; padding:6px 12px; border-radius:4px; letter-spacing:.02em; }
-  .gtag-yt   { background:#fff0f0; color:#cc2200; border:1px solid #f5c0c0; }
-  .gtag-live { background:#f0f4ff; color:#1a3faa; border:1px solid #c0ccf0; }
-  .gtag-end  { background:#f5f5f5; color:rgba(10,10,10,.5); border:1px solid #ddd; }
-  .gtag-rec  { background:#f0fff4; color:#1a7a3a; border:1px solid #b0dbb0; }
-  .gtag-sem  { background:#fff8f0; color:#a04a00; border:1px solid #f5d0a0; }
   .gallery-year { font-family:"Pretendard",sans-serif; font-size:16px; letter-spacing:.06em; color:var(--black); margin:32px 0 12px; padding-bottom:10px; border-bottom:1px solid var(--rule); font-weight:700; }
   .gallery-year:first-child { margin-top:48px; }
-  .tone-blue-1 { background: linear-gradient(135deg, #00001a 0%, #073b93 58%, #0c5fdb 100%); }
-  .tone-blue-2 { background: linear-gradient(135deg, #020826 0%, #0a49ae 62%, #4e99ff 100%); }
-  .tone-blue-3 { background: linear-gradient(135deg, #01061f 0%, #083277 56%, #0c5fdb 100%); }
-  .tone-red-1 { background: linear-gradient(135deg, #00001a 0%, #10245b 48%, #8f3e6e 100%); }
-  .tone-red-2 { background: linear-gradient(135deg, #020826 0%, #123178 46%, #b24a75 100%); }
-  .tone-red-3 { background: linear-gradient(135deg, #00001a 0%, #0c2a69 50%, #9f325c 100%); }
+  .tone-blue-1 { background: linear-gradient(135deg, #00001a 0%, #08245a 52%, #0c5fdb 100%); }
+  .tone-blue-2 { background: linear-gradient(135deg, #01051c 0%, #0a2f74 54%, #4e99ff 100%); }
+  .tone-blue-3 { background: linear-gradient(135deg, #00001a 0%, #06204d 50%, #2f61c8 100%); }
+  .tone-red-1 { background: linear-gradient(135deg, #00001a 0%, #111b3f 42%, #334f96 100%); }
+  .tone-red-2 { background: linear-gradient(135deg, #01051c 0%, #172650 44%, #426bb8 100%); }
+  .tone-red-3 { background: linear-gradient(135deg, #00001a 0%, #152248 46%, #2d4f9d 100%); }
 
   /* ── SPEAKER PHOTO GRID (새 형식) ── */
   .speakers-sec {
@@ -502,7 +512,7 @@
     width: 320px;
     height: 320px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(217,91,130,.10) 0%, rgba(217,91,130,0) 68%);
+    background: radial-gradient(circle, rgba(0,0,26,.16) 0%, rgba(0,0,26,0) 68%);
     pointer-events: none;
   }
   .speakers-shell::after {
@@ -513,7 +523,7 @@
     width: 340px;
     height: 340px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(12,95,219,.14) 0%, rgba(12,95,219,0) 70%);
+    background: radial-gradient(circle, rgba(0,0,26,.14) 0%, rgba(12,95,219,0) 70%);
     pointer-events: none;
   }
   .speakers-grid {
@@ -536,7 +546,7 @@
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(29,79,151,0.12), rgba(181,45,65,0.14));
+    background: linear-gradient(135deg, rgba(0,0,26,.16), rgba(12,95,219,.14));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -619,7 +629,7 @@
     height: 220px;
     border-radius: 50%;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(29,79,151,0.14), rgba(181,45,65,0.16));
+    background: linear-gradient(135deg, rgba(0,0,26,.18), rgba(12,95,219,.16));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -669,7 +679,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(135deg, #00001a 0%, #073b93 62%, #0c5fdb 100%);
+    background: linear-gradient(135deg, #00001a 0%, #06153b 48%, #0c5fdb 100%);
     padding: 48px 56px;
     margin-top: 72px;
     gap: 32px;
@@ -685,13 +695,13 @@
     font-weight: 500;
   }
   .spk-cta-heading {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: .98;
+    font-family: 'Pretendard', sans-serif;
+    font-size: clamp(34px, 4.4vw, 54px);
+    line-height: 1.06;
     color: var(--white);
     margin-bottom: 14px;
-    font-weight: 400;
-    letter-spacing: .01em;
+    font-weight: 800;
+    letter-spacing: -.03em;
   }
   .spk-cta-body {
     font-size: 17px;
@@ -737,7 +747,7 @@
     .who-em { font-size: 22px; margin-bottom: 14px; }
     .g-thumb { height: 200px; padding: 18px; }
     .g-info { padding: 16px 18px; }
-    .g-info-title, .gtag, .g-info-meta { font-size: 15px; }
+    .g-info-title, .g-info-meta { font-size: 15px; }
     .partner { min-width: 160px; padding: 28px 18px; font-size: 15px; }
     .speakers-sec { padding-top:104px; padding-bottom:104px; }
     .speakers-shell { padding: 38px 28px 34px; border-radius: 22px; }
@@ -843,7 +853,7 @@
     .g-title { font-size: 18px; line-height: 1.18; margin: 8px 0 4px; }
     .g-sub { font-size: 14px; line-height: 1.55; }
     .g-info { padding: 15px 16px; }
-    .g-info-title, .g-info-meta, .gtag { font-size: 14px; line-height: 1.5; }
+    .g-info-title, .g-info-meta { font-size: 14px; line-height: 1.5; }
     .partners-wrap { margin-top: 36px; }
     .partner { flex: 1 1 50%; min-width: 0; padding: 22px 12px; font-size: 14px; }
     .host-logo { height: 24px; margin-bottom: 20px; }
@@ -1032,6 +1042,96 @@
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_03.png" alt="오혜연 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">KAIST</div>
+      <div class="spk-name">오혜연, 교수</div>
+      <div class="spk-role-sm">교수</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_04.png" alt="안성진 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">KAIST</div>
+      <div class="spk-name">안성진, 교수</div>
+      <div class="spk-role-sm">교수</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_05.png" alt="하정우 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">네이버</div>
+      <div class="spk-name">하정우, AI 소장</div>
+      <div class="spk-role-sm">AI 소장</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_15.png" alt="박준성 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">스탠포드대학교</div>
+      <div class="spk-name">박준성, 컴퓨터 과학학부 박사</div>
+      <div class="spk-role-sm">컴퓨터 과학학부 박사</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_23.png" alt="Sami Huovilainen 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">시티은행</div>
+      <div class="spk-name">Sami Huovilainen, 본사 AI 총괄</div>
+      <div class="spk-role-sm">본사 AI 총괄</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_11.png" alt="진대연 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">뤼튼</div>
+      <div class="spk-name">진대연, 캐털리스트팀 팀장</div>
+      <div class="spk-role-sm">캐털리스트팀 팀장</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_01.png" alt="박경태 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">삼성 디스플레이</div>
+      <div class="spk-name">박경태, AI 전략</div>
+      <div class="spk-role-sm">AI 전략</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_06.png" alt="박지호 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">신한은행</div>
+      <div class="spk-name">박지호, 디지털혁신단 LLM 모델 Part Leader</div>
+      <div class="spk-role-sm">디지털혁신단 LLM 모델 Part Leader</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_16.png" alt="황보현우 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">HKUST</div>
+      <div class="spk-name">황보현우, 홍콩과학기술대학교 겸임교수</div>
+      <div class="spk-role-sm">홍콩과학기술대학교 겸임교수</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_22.png" alt="고동현 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">네이버</div>
+      <div class="spk-name">고동현, Chatbot Model 팀 리더</div>
+      <div class="spk-role-sm">Chatbot Model 팀 리더</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_09.png" alt="박세준 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">쏘카</div>
+      <div class="spk-name">박세준, 기술기획 PM</div>
+      <div class="spk-role-sm">기술기획 PM</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_08.png" alt="주요한 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">쏘카</div>
+      <div class="spk-name">주요한, Data PM</div>
+      <div class="spk-role-sm">Data PM</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_18.png" alt="김현수 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">마이크로소프트</div>
+      <div class="spk-name">김현수, AI 리더</div>
+      <div class="spk-role-sm">AI 리더</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_24.png" alt="박이안 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">KIC SF</div>
+      <div class="spk-name">박이안, 벤쳐심사</div>
+      <div class="spk-role-sm">벤쳐심사</div>
+    </div>
+    <div class="spk-card">
+      <div class="spk-photo"><img src="images/speakers_25.png" alt="Ben Asaf 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
+      <div class="spk-org">클리카</div>
+      <div class="spk-name">Ben Asaf, CTO</div>
+      <div class="spk-role-sm">CTO</div>
+    </div>
+    <div class="spk-card">
       <div class="spk-photo"><img src="images/speakers_21.png" alt="이영복 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">제네시스랩</div>
       <div class="spk-name">이영복, CEO</div>
@@ -1050,18 +1150,6 @@
       <div class="spk-role-sm">CEO</div>
     </div>
     <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_16.png" alt="황보현우 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">HKUST</div>
-      <div class="spk-name">황보현우, 홍콩과학기술대학교 겸임교수</div>
-      <div class="spk-role-sm">홍콩과학기술대학교 겸임교수</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_06.png" alt="박지호 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">신한은행</div>
-      <div class="spk-name">박지호, 디지털혁신단 LLM 모델 Part Leader</div>
-      <div class="spk-role-sm">디지털혁신단 LLM 모델 Part Leader</div>
-    </div>
-    <div class="spk-card">
       <div class="spk-photo"><img src="images/speakers_12.png" alt="성노윤 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
       <div class="spk-org">A.I.mtory</div>
       <div class="spk-name">성노윤, CEO</div>
@@ -1072,54 +1160,6 @@
       <div class="spk-org">AWS</div>
       <div class="spk-name">구태훈, ETP</div>
       <div class="spk-role-sm">ETP</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_11.png" alt="진대연 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">뤼튼</div>
-      <div class="spk-name">진대연, 캐털리스트팀 팀장</div>
-      <div class="spk-role-sm">캐털리스트팀 팀장</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_09.png" alt="박세준 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">쏘카</div>
-      <div class="spk-name">박세준, 기술기획 PM</div>
-      <div class="spk-role-sm">기술기획 PM</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_08.png" alt="주요한 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">쏘카</div>
-      <div class="spk-name">주요한, Data PM</div>
-      <div class="spk-role-sm">Data PM</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_01.png" alt="박경태 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">삼성 디스플레이</div>
-      <div class="spk-name">박경태, AI 전략</div>
-      <div class="spk-role-sm">AI 전략</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_03.png" alt="오혜연 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">KAIST</div>
-      <div class="spk-name">오혜연, 교수</div>
-      <div class="spk-role-sm">교수</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_05.png" alt="하정우 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">네이버</div>
-      <div class="spk-name">하정우, AI 소장</div>
-      <div class="spk-role-sm">AI 소장</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_04.png" alt="안성진 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">KAIST</div>
-      <div class="spk-name">안성진, 교수</div>
-      <div class="spk-role-sm">교수</div>
-    </div>
-    <div class="spk-card">
-      <div class="spk-photo"><img src="images/speakers_18.png" alt="김현수 프로필 사진" loading="lazy"><span class="spk-photo-placeholder">IMG URL</span></div>
-      <div class="spk-org">마이크로소프트</div>
-      <div class="spk-name">김현수, AI 리더</div>
-      <div class="spk-role-sm">AI 리더</div>
     </div>
   </div>
 
@@ -1143,22 +1183,41 @@
   <h2 class="sec-title">이전 행사 히스토리</h2>
   <p class="sec-body" style="margin-bottom:0;">2022년부터 이어온 AI Ignite의 발자취입니다.</p>
 
+  <div class="gallery-year">2026</div>
+  <div class="gallery-grid">
+
+    <a class="g-card" href="https://www.youtube.com/watch?v=v3vOjSiOlwQ&t=554s" target="_blank">
+      <div class="g-thumb tone-blue-2">
+        <div class="g-badge">2026.03.18 · WEBINAR</div>
+        <div>
+          <div class="g-title">커스텀 평가 체계로<br>LLM 서비스 평가 기준 만들기</div>
+          <div class="g-sub">이찬수 · SELECTSTAR 사업개발팀장</div>
+        </div>
+        <div class="g-date">2026.03.18 · YOUTUBE</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[3월] 커스텀 평가 체계로 LLM 서비스 평가 기준 만들기</div>
+        <div class="g-info-meta">March 18, 2026</div>
+      </div>
+    </a>
+
+  </div>
+
   <div class="gallery-year">2025</div>
   <div class="gallery-grid">
 
-    <a class="g-card" href="#" target="_blank">
+    <a class="g-card" href="https://www.youtube.com/watch?v=e-ck_kPotPI&t=115s" target="_blank">
       <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2025 · AI IGNITE</div>
+        <div class="g-badge">2025.08.19 · WEBINAR</div>
         <div>
-          <div class="g-title">AI Safety</div>
-          <div class="g-sub">챗봇, LLM, 사이버 보안<br>데이터 보호</div>
+          <div class="g-title">How Citi bank Uses AI<br>in BFSI</div>
+          <div class="g-sub">금융권 AI 활용 사례<br>SELECTSTAR Webinar</div>
         </div>
-        <div class="g-date">2025.03</div>
+        <div class="g-date">2025.08.19 · YOUTUBE</div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[3월] AI Safety: 챗봇, LLM, 사이버 보안, 데이터 보호</div>
-        <div class="g-info-meta">March, 2025</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
+        <div class="g-info-title">[8월] How Citi bank Uses AI in BFSI</div>
+        <div class="g-info-meta">August 19, 2025</div>
       </div>
     </a>
 
@@ -1167,7 +1226,7 @@
   <div class="gallery-year">2024</div>
   <div class="gallery-grid">
 
-    <a class="g-card" href="#" target="_blank">
+    <a class="g-card" href="https://event-us.kr/selectstar/event/94893" target="_blank">
       <div class="g-thumb tone-red-1">
         <div class="g-badge">AI IGNITE × 금융보안원 · 2024.12.17</div>
         <div>
@@ -1177,29 +1236,12 @@
         <div class="g-date">2024.12.17 · 7PM–10PM</div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[12월] AI 트렌드와 커리어 전략</div>
+        <div class="g-info-title">[12월] 금융 AI 안전성과 활용 동향</div>
         <div class="g-info-meta">December 17, 2024</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
       </div>
     </a>
 
-    <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb tone-blue-2">
-        <div class="g-badge">2024 AI/DX NETWORKING NIGHT</div>
-        <div>
-          <div class="g-title">AI 트렌드와<br>커리어 전략</div>
-          <div class="g-sub">황보현우 · 홍콩과기대 겸임교수<br>후원 sba 서울경제진흥원</div>
-        </div>
-        <div class="g-date">2024.08.21 · 7PM–10PM · 서울창업허브</div>
-      </div>
-      <div class="g-info">
-        <div class="g-info-title">[8월] AI 트렌드와 커리어 전략</div>
-        <div class="g-info-meta">August 21, 2024</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
-      </div>
-    </a>
-
-    <a class="g-card" href="#" target="_blank">
+    <a class="g-card" href="https://www.youtube.com/watch?v=7roOZltt3sQ&t=9s" target="_blank">
       <div class="g-thumb tone-blue-3">
         <div class="g-badge">2024 · AI IGNITE</div>
         <div>
@@ -1211,11 +1253,55 @@
       <div class="g-info">
         <div class="g-info-title">[9월] 자동차와 AI, 자동차 산업과 인공지능의 융합</div>
         <div class="g-info-meta">September, 2024</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
       </div>
     </a>
 
-    <a class="g-card" href="#" target="_blank">
+    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-2408/" target="_blank">
+      <div class="g-thumb tone-blue-2">
+        <div class="g-badge">2024 AI/DX NETWORKING NIGHT</div>
+        <div>
+          <div class="g-title">AI 시대의<br>경쟁 우위 전략</div>
+          <div class="g-sub">황보현우 · 홍콩과기대 겸임교수<br>후원 sba 서울경제진흥원</div>
+        </div>
+        <div class="g-date">2024.08.21 · 7PM–10PM · 서울창업허브</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[8월] AI 시대의 경쟁 우위 전략</div>
+        <div class="g-info-meta">August 21, 2024</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://event-us.kr/selectstar/event/87719" target="_blank">
+      <div class="g-thumb tone-blue-1">
+        <div class="g-badge">2024.07.24 · AI WEBINAR</div>
+        <div>
+          <div class="g-title">LLM 신뢰성<br>어떻게 평가할 수 있을까?</div>
+          <div class="g-sub">LLM 기술적 특징과 AI 신뢰성 정의<br>신뢰성 검증이 어려운 이유</div>
+        </div>
+        <div class="g-date">2024.07.24 · ONLINE</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[7월] LLM 신뢰성 어떻게 평가할 수 있을까?</div>
+        <div class="g-info-meta">July 24, 2024</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-shinhan-bank-llm-talk/" target="_blank">
+      <div class="g-thumb tone-blue-1">
+        <div class="g-badge">2024.07.11 · AI IGNITE</div>
+        <div>
+          <div class="g-title">금융권 LLM<br>도입 전략</div>
+          <div class="g-sub">사례 및 기술 적용<br>금융 AI 실무</div>
+        </div>
+        <div class="g-date">2024.07.11</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[7월] 금융권 LLM 도입: 사례 및 기술 적용</div>
+        <div class="g-info-meta">July 11, 2024</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://selectstar.ai/blog/notice/ai-red-team-review/" target="_blank">
       <div class="g-thumb tone-red-2">
         <div class="g-badge">Gen AI Korea 2024 · COEX Hall B2</div>
         <div>
@@ -1227,39 +1313,21 @@
       <div class="g-info">
         <div class="g-info-title">생성형 AI 레드팀 챌린지</div>
         <div class="g-info-meta">April 11–12, 2024</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
       </div>
     </a>
 
-    <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2024 · AI IGNITE</div>
+    <a class="g-card" href="https://event-us.kr/selectstar/event/79116" target="_blank">
+      <div class="g-thumb tone-blue-3">
+        <div class="g-badge">2024.03.28 · AI IGNITE</div>
         <div>
-          <div class="g-title">금융권 LLM<br>도입 전략</div>
-          <div class="g-sub">사례 및 기술 적용<br>금융 AI 실무</div>
+          <div class="g-title">AI Safety</div>
+          <div class="g-sub">양날의 검을 다루는 법<br>네이버 Chatbot Model 팀 리더</div>
         </div>
-        <div class="g-date">2024.07</div>
+        <div class="g-date">2024.03.28 · 7PM–10PM</div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[7월] 금융권 LLM 도입: 사례 및 기술 적용</div>
-        <div class="g-info-meta">July, 2024</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
-      </div>
-    </a>
-
-    <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb tone-red-3">
-        <div class="g-badge">2024 · 세미나</div>
-        <div>
-          <div class="g-title">내 사업에<br>AI 도입하기</div>
-          <div class="g-sub">핵심은 데이터 센트릭</div>
-        </div>
-        <div class="g-date">2024 · 세미나</div>
-      </div>
-      <div class="g-info">
-        <div class="g-info-title">[세미나] 내 사업에 AI 도입하기: 핵심은 데이터 센트릭</div>
-        <div class="g-info-meta">2024 · 세미나</div>
-        <div class="g-tags"><span class="gtag gtag-sem">세미나</span></div>
+        <div class="g-info-title">[3월] AI Safety: 양날의 검을 다루는 법</div>
+        <div class="g-info-meta">March 28, 2024</div>
       </div>
     </a>
 
@@ -1268,71 +1336,33 @@
   <div class="gallery-year">2023</div>
   <div class="gallery-grid">
 
-    <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb tone-red-1">
-        <div class="g-badge">2023.07 · AI IGNITE</div>
-        <div>
-          <div class="g-title">우리 회사도<br>AI 도입할 수 있을까?</div>
-          <div class="g-sub">1억 3천만건 AI 데이터로 보는<br>산업계 AI 적용 트렌드</div>
-        </div>
-        <div class="g-date">2023.07 · 오프라인</div>
-      </div>
-      <div class="g-info">
-        <div class="g-info-title">[7월] 우리 회사도 AI 도입할 수 있을까?</div>
-        <div class="g-info-meta">July, 2023</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
-      </div>
-    </a>
-
-    <a class="g-card" href="https://winter-squash-b08.notion.site/AI-Talk-with-Andrew-Ng-c829850ffc498328a573016e9dc80905?source=copy_link" target="_blank">
-      <div class="g-thumb tone-blue-2">
-        <div class="g-badge">2023.07.21 · KBS 별관공개홀 · 온·오프라인</div>
-        <div>
-          <div class="g-title">AI Talk<br>with Andrew Ng</div>
-          <div class="g-sub">Keynote, Fireside Chat &amp; Networking<br>과기정통부 · nipa 후원</div>
-        </div>
-        <div class="g-date">2023.07.21 · 8PM</div>
-      </div>
-      <div class="g-info">
-        <div class="g-info-title">AI Talk with Andrew Ng</div>
-        <div class="g-info-meta">July 21, 2023</div>
-        <div class="g-tags">
-          <span class="gtag gtag-yt">YOUTUBE</span>
-          <span class="gtag gtag-live">LIVE</span>
-          <span class="gtag gtag-end">종료</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb tone-red-2">
-        <div class="g-badge">2023.08 · AI IGNITE</div>
-        <div>
-          <div class="g-title">CAR TECH<br>AI 스타트업</div>
-          <div class="g-sub">오토피디아, 어떻게 40억 투자 받았을까?</div>
-        </div>
-        <div class="g-date">2023.08 · 오프라인</div>
-      </div>
-      <div class="g-info">
-        <div class="g-info-title">[8월] CAR TECH AI 스타트업 오토피디아 40억 투자 비결</div>
-        <div class="g-info-meta">August, 2023</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
-      </div>
-    </a>
-
-    <a class="g-card" href="#" target="_blank">
+    <a class="g-card" href="https://www.youtube.com/watch?v=U3gy2_IFuFc" target="_blank">
       <div class="g-thumb tone-blue-3">
-        <div class="g-badge">2023.09 · AI IGNITE</div>
+        <div class="g-badge">2023.12.06 · AI NODAJI</div>
         <div>
-          <div class="g-title">AI 면접<br>솔루션</div>
-          <div class="g-sub">제네시스랩 대표 이영복<br>대기업이 선택한 AI 면접</div>
+          <div class="g-title">ChatGPT 1주년</div>
+          <div class="g-sub">이렇게 활용해야 사업이 성공한다<br>AI 노다지 풀버전</div>
         </div>
-        <div class="g-date">2023.09 · 오프라인</div>
+        <div class="g-date">2023.12.06 · YOUTUBE</div>
+      </div>
+        <div class="g-info">
+        <div class="g-info-title">[12월] ChatGPT 1주년, 이렇게 활용해야 사업이 성공한다</div>
+        <div class="g-info-meta">December 6, 2023</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://youtu.be/vC33uv5v3Uk?si=RyK1O2KNu_kBYnqe" target="_blank">
+      <div class="g-thumb tone-red-3">
+        <div class="g-badge">2023.11 · AI IGNITE</div>
+        <div>
+          <div class="g-title">스포츠로<br>하나 되는 AI</div>
+          <div class="g-sub">AI와 스포츠 산업의 만남<br>11월 특별 토크 세션</div>
+        </div>
+        <div class="g-date">2023.11 · 오프라인</div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[9월] 제네시스랩 대표 이영복 · AI 면접 솔루션</div>
-        <div class="g-info-meta">September, 2023</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
+        <div class="g-info-title">[11월] 스포츠로 하나 되는 AI</div>
+        <div class="g-info-meta">November, 2023</div>
       </div>
     </a>
 
@@ -1348,26 +1378,66 @@
       <div class="g-info">
         <div class="g-info-title">[10월] AI/DX Networking Night · AI 토크쇼 & 파티</div>
         <div class="g-info-meta">October, 2023</div>
-        <div class="g-tags">
-          <span class="gtag gtag-rec">영상 보기</span>
-          <span class="gtag gtag-end">종료</span>
-        </div>
       </div>
     </a>
 
-    <a class="g-card" href="#" target="_blank">
-      <div class="g-thumb tone-red-3">
-        <div class="g-badge">2023.11 · AI IGNITE</div>
+    <a class="g-card" href="https://www.youtube.com/watch?v=wQXpmF_k1_U" target="_blank">
+      <div class="g-thumb tone-blue-2">
+        <div class="g-badge">2023.07.21 · KBS 별관공개홀 · 온·오프라인</div>
         <div>
-          <div class="g-title">AI/DX<br>네트워킹 나이트</div>
-          <div class="g-sub">11월 AI 토크쇼 & 월드컵</div>
+          <div class="g-title">AI Talk<br>with Andrew Ng</div>
+          <div class="g-sub">Keynote, Fireside Chat &amp; Networking<br>과기정통부 · nipa 후원</div>
         </div>
-        <div class="g-date">2023.11 · 오프라인</div>
+        <div class="g-date">2023.07.21 · 8PM</div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[11월] AI/DX Networking Night · AI 토크쇼 & 월드컵</div>
-        <div class="g-info-meta">November, 2023</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
+        <div class="g-info-title">AI Talk with Andrew Ng</div>
+        <div class="g-info-meta">July 21, 2023</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://www.youtube.com/watch?v=awhxweWXCRM&t=648s" target="_blank">
+      <div class="g-thumb tone-red-2">
+        <div class="g-badge">2023.07.11 · WEBINAR</div>
+        <div>
+          <div class="g-title">ChatGPT로 만든 사회</div>
+          <div class="g-sub">기억을 가진 NPC와 상호작용<br>박준성 박사님 Full.Ver</div>
+        </div>
+        <div class="g-date">2023.07.11 · YOUTUBE</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[7월] ChatGPT로 만든 사회, 기억을 가진 NPC와 상호작용</div>
+        <div class="g-info-meta">July 11, 2023</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://www.youtube.com/watch?v=MGePMK1Pdb8" target="_blank">
+      <div class="g-thumb tone-red-1">
+        <div class="g-badge">2023.07 · AI IGNITE</div>
+        <div>
+          <div class="g-title">우리 회사도<br>AI 도입할 수 있을까?</div>
+          <div class="g-sub">1억 3천만건 AI 데이터로 보는<br>산업계 AI 적용 트렌드</div>
+        </div>
+        <div class="g-date">2023.07 · 오프라인</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[7월] 우리 회사도 AI 도입할 수 있을까?</div>
+        <div class="g-info-meta">July, 2023</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://www.youtube.com/watch?v=vC33uv5v3Uk&t=1s" target="_blank">
+      <div class="g-thumb tone-blue-1">
+        <div class="g-badge">2023.01.19 · AI NODAJI</div>
+        <div>
+          <div class="g-title">스포츠로<br>하나 되는 AI</div>
+          <div class="g-sub">Full Video<br>AI NODAJI</div>
+        </div>
+        <div class="g-date">2023.01.19 · YOUTUBE</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[1월] 스포츠로 하나 되는 AI</div>
+        <div class="g-info-meta">January 19, 2023</div>
       </div>
     </a>
 
@@ -1376,7 +1446,7 @@
   <div class="gallery-year">2022</div>
   <div class="gallery-grid">
 
-    <a class="g-card" href="#" target="_blank">
+    <a class="g-card" href="https://www.youtube.com/watch?v=ScQZHrF2Q7E" target="_blank">
       <div class="g-thumb tone-blue-2">
         <div class="g-badge">2022.12 · AI LEADERS FORUM</div>
         <div>
@@ -1388,7 +1458,51 @@
       <div class="g-info">
         <div class="g-info-title">[12월] NeurIPS 2022 AI Leaders Forum</div>
         <div class="g-info-meta">December, 2022</div>
-        <div class="g-tags"><span class="gtag gtag-end">종료</span></div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-nodaji-halloween/" target="_blank">
+      <div class="g-thumb tone-red-1">
+        <div class="g-badge">2022.10.27 · AI NODAJI</div>
+        <div>
+          <div class="g-title">핼러윈 프라이빗<br>네트워킹 파티</div>
+          <div class="g-sub">씨드로닉스 CEO 박별터<br>AI 트렌드와 네트워킹</div>
+        </div>
+        <div class="g-date">2022.10.27 · PRIVATE EVENT</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[10월] 핼러윈 프라이빗 네트워킹 파티</div>
+        <div class="g-info-meta">October 27, 2022</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-september-event/" target="_blank">
+      <div class="g-thumb tone-blue-3">
+        <div class="g-badge">2022.09 · AI NODAJI</div>
+        <div>
+          <div class="g-title">AI가 평가하는<br>면접과 채용의 미래</div>
+          <div class="g-sub">제네시스랩 CEO 이영복<br>AI 면접과 채용 혁신</div>
+        </div>
+        <div class="g-date">2022.09 · 오프라인</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[9월] AI가 평가하는 면접과 채용의 미래</div>
+        <div class="g-info-meta">September, 2022</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/car-tech-startup/" target="_blank">
+      <div class="g-thumb tone-blue-1">
+        <div class="g-badge">2022.08 · AI NODAJI</div>
+        <div>
+          <div class="g-title">CAR TECH 스타트업의<br>40억 투자 비결</div>
+          <div class="g-sub">오토피디아 COO 조재영<br>자동차 산업 속 AI 적용 사례</div>
+        </div>
+        <div class="g-date">2022.08 · 오프라인</div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[8월] CAR TECH 스타트업의 40억 투자 비결</div>
+        <div class="g-info-meta">August, 2022</div>
       </div>
     </a>
 
@@ -1414,8 +1528,8 @@
   <img src="images/selectstar_logo_w.png" alt="Selectstar" class="host-logo">
   <p class="sec-body sec-body-inv">"신뢰할 수 있는 AI를 위한 선택" — AI 학습 데이터 구축부터 AI 검증·평가까지, 안심하고 배포할 수 있는 AI를 위한 엔드-투-엔드 솔루션을 제공합니다.</p>
   <div class="ss-wrap">
-    <div class="ss-card"><div class="ss-tag">AI DATA</div><div class="ss-h">데이터 구축 & 스토어</div><div class="ss-p">고품질 AI 학습 데이터 구축, 데이터셋 스토어, 데이터바우처 지원</div><div class="ss-chips"><span class="ss-chip">데이터 구축</span><span class="ss-chip">데이터셋 스토어</span><span class="ss-chip">데이터바우처</span></div></div>
-    <div class="ss-card"><div class="ss-tag">AI EVALUATION</div><div class="ss-h">AI 검증 & 안전성 평가</div><div class="ss-p">LLM 서비스의 신뢰성 검증 자동화, AI 레드팀, 검증 컨설팅</div><div class="ss-chips"><span class="ss-chip">Datumo Eval</span><span class="ss-chip">AI 레드팀</span><span class="ss-chip">AI-MASTER</span></div></div>
+    <div class="ss-card"><div class="ss-tag">AI DATA</div><div class="ss-h">데이터 구축 & 스토어</div><div class="ss-p">고품질 AI 학습 데이터 구축, 데이터셋 스토어, 데이터바우처 지원</div><div class="ss-chips"><a class="ss-chip" href="https://selectstar.ai/data-build/" target="_blank" rel="noopener noreferrer">데이터 구축</a><a class="ss-chip" href="https://selectstar.ai/datasetstore" target="_blank" rel="noopener noreferrer">데이터셋 스토어</a><a class="ss-chip" href="https://selectstar.ai/datavoucher" target="_blank" rel="noopener noreferrer">데이터바우처</a></div></div>
+    <div class="ss-card"><div class="ss-tag">AI EVALUATION</div><div class="ss-h">AI 검증 & 안전성 평가</div><div class="ss-p">LLM 서비스의 신뢰성 검증 자동화, AI 레드팀, 검증 컨설팅</div><div class="ss-chips"><a class="ss-chip" href="https://selectstar.ai/datumo-eval/" target="_blank" rel="noopener noreferrer">Datumo Eval</a><a class="ss-chip" href="https://selectstar.ai/ai-red-team/" target="_blank" rel="noopener noreferrer">AI 레드팀</a><a class="ss-chip" href="https://selectstar.ai/ai-master/" target="_blank" rel="noopener noreferrer">AI-MASTER</a></div></div>
   </div>
 </section>
 
