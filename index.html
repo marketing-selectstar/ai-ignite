@@ -693,6 +693,9 @@
       radial-gradient(circle at 80% 0%, rgba(12,95,219,.08), transparent 24%),
       linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
     overflow: hidden;
+    padding: 0 !important;
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
   }
   .moments-marquee {
     position: relative;
@@ -732,15 +735,26 @@
     overflow: hidden;
     border-radius: 0;
     width: min(34vw, 520px);
-    height: min(25vw, 380px);
+    height: min(26vw, 400px);
     background: #050816;
     flex: 0 0 auto;
+  }
+  .moment-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(5,16,58,.34) 0%, rgba(6,20,74,.22) 38%, rgba(8,28,96,.36) 100%),
+      linear-gradient(90deg, rgba(12,95,219,.18) 0%, rgba(78,153,255,.08) 48%, rgba(85,214,255,.12) 100%);
+    mix-blend-mode: multiply;
+    pointer-events: none;
   }
   .moment-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    filter: saturate(.78) contrast(1.04) brightness(.9) hue-rotate(-4deg);
   }
   @keyframes momentsScroll {
     from { transform: translateX(0); }
@@ -1159,8 +1173,9 @@
     .partners-img-desktop { display: none !important; }
     .partners-img-mobile { display: block !important; }
     .highlight-sec { min-height: 260px; }
+    .moments-sec { margin: 0 calc(50% - 50vw); width: 100vw; }
     .moments-marquee::before,
-    .moments-marquee::after { width: 32px; }
+    .moments-marquee::after { width: 0; }
     .moments-track { gap: 0; animation-duration: 32s; }
     .moment-slide { width: 72vw; height: 48vw; border-radius: 0; }
     .highlight-fallback-play { width: 74px; height: 74px; }
