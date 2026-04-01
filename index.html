@@ -692,32 +692,59 @@
     background:
       radial-gradient(circle at 80% 0%, rgba(12,95,219,.08), transparent 24%),
       linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    overflow: hidden;
   }
-  .moments-grid {
-    display: grid;
-    grid-template-columns: 1.25fr .75fr;
-    gap: 18px;
-    max-width: 1180px;
-    margin: 0 auto;
+  .moments-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
   }
-  .moments-stack {
-    display: grid;
-    gap: 18px;
+  .moments-marquee::before,
+  .moments-marquee::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 96px;
+    z-index: 2;
+    pointer-events: none;
   }
-  .moment-card {
+  .moments-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, #f8fbff 0%, rgba(248,251,255,0) 100%);
+  }
+  .moments-marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, #f8fbff 0%, rgba(248,251,255,0) 100%);
+  }
+  .moments-track {
+    display: flex;
+    gap: 0;
+    width: max-content;
+    animation: momentsScroll 42s linear infinite;
+    will-change: transform;
+  }
+  .moments-sec:hover .moments-track {
+    animation-play-state: paused;
+  }
+  .moment-slide {
     position: relative;
     overflow: hidden;
-    border-radius: 18px;
-    min-height: 280px;
+    border-radius: 0;
+    width: min(34vw, 520px);
+    height: min(25vw, 380px);
     background: #050816;
-    box-shadow: 0 18px 50px rgba(0,0,26,.12);
+    flex: 0 0 auto;
   }
-  .moment-card.tall { min-height: 580px; }
-  .moment-card img {
+  .moment-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+  @keyframes momentsScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
   /* ── SPEAKER PHOTO GRID (새 형식) ── */
   .speakers-sec {
@@ -1132,10 +1159,10 @@
     .partners-img-desktop { display: none !important; }
     .partners-img-mobile { display: block !important; }
     .highlight-sec { min-height: 260px; }
-    .moments-grid { grid-template-columns: 1fr; gap: 14px; }
-    .moments-stack { gap: 14px; }
-    .moment-card { min-height: 220px; border-radius: 14px; }
-    .moment-card.tall { min-height: 340px; }
+    .moments-marquee::before,
+    .moments-marquee::after { width: 32px; }
+    .moments-track { gap: 0; animation-duration: 32s; }
+    .moment-slide { width: 72vw; height: 48vw; border-radius: 0; }
     .highlight-fallback-play { width: 74px; height: 74px; }
     .highlight-fallback-play::before { left: 29px; top: 22px; border-left-width: 20px; border-top-width: 14px; border-bottom-width: 14px; }
     .highlight-fallback-caption { left: 16px; right: 16px; bottom: 16px; flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -1225,17 +1252,23 @@
 </section>
 
 <section class="s pad-sm moments-sec">
-  <div class="moments-grid">
-    <div class="moment-card tall">
-      <img src="images/event_10.jpg" alt="AI Ignite 메인 세션 현장 전경" loading="lazy">
-    </div>
-    <div class="moments-stack">
-      <div class="moment-card">
-        <img src="images/event_07.jpg" alt="AI Ignite 세미나 현장 이미지" loading="lazy">
-      </div>
-      <div class="moment-card">
-        <img src="images/event_04.jpg" alt="AI Ignite 커뮤니티 세션 현장 이미지" loading="lazy">
-      </div>
+  <div class="moments-marquee">
+    <div class="moments-track">
+      <div class="moment-slide"><img src="images/event_02.jpg" alt="AI Ignite 메인 세션 현장 전경" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_01.jpg" alt="AI Ignite 대표 연사 세션 이미지" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_04.jpg" alt="AI Ignite 참가자 현장 스냅" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_07.jpg" alt="AI Ignite 세미나 현장 이미지" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_09.jpg" alt="AI Ignite 커뮤니티 세션 현장 이미지" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_08.jpg" alt="AI Ignite 발표 세션 현장 이미지" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_06.jpg" alt="AI Ignite 참가자 몰입 장면" loading="lazy"></div>
+
+      <div class="moment-slide"><img src="images/event_02.jpg" alt="AI Ignite 메인 세션 현장 전경" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_01.jpg" alt="AI Ignite 대표 연사 세션 이미지" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_04.jpg" alt="AI Ignite 참가자 현장 스냅" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_07.jpg" alt="AI Ignite 세미나 현장 이미지" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_09.jpg" alt="AI Ignite 커뮤니티 세션 현장 이미지" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_08.jpg" alt="AI Ignite 발표 세션 현장 이미지" loading="lazy"></div>
+      <div class="moment-slide"><img src="images/event_06.jpg" alt="AI Ignite 참가자 몰입 장면" loading="lazy"></div>
     </div>
   </div>
 </section>
