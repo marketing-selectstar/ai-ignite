@@ -35,15 +35,6 @@
     overflow-x: hidden;
   }
 
-  /* ── FIRE CANVAS — hero only ── */
-  #fire-canvas {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.38;
-  }
-
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 300;
@@ -83,42 +74,73 @@
   .hero {
     position: relative; min-height: 100vh;
     display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 0 56px 72px;
+    padding: 124px 56px 72px;
     background:
       linear-gradient(180deg, #05010b 0%, #07010d 58%, #0a020e 100%);
     overflow: hidden;
   }
-
-  /* Ember glow rising from bottom */
-  .ember-glow {
-    position: absolute; bottom: -160px; left: 50%;
-    transform: translateX(-50%);
-    width: 110vw; height: 640px;
-    background: radial-gradient(ellipse at 50% 100%,
-      rgba(255,190,95,.2) 0%,
-      rgba(235,150,45,.1) 30%,
-      rgba(210,120,30,.04) 52%,
-      transparent 68%);
-    pointer-events: none; z-index: 2;
-    animation: emberPulse 7s ease-in-out infinite alternate;
+  .hero-video-bg,
+  .hero-video-fallback,
+  .hero-video-overlay {
+    position: absolute;
+    inset: 0;
   }
-  .hero-glow-2 {
-    position: absolute; top: -80px; left: -120px;
-    width: 560px; height: 560px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,190,110,.035) 0%, transparent 65%);
-    pointer-events: none; z-index: 1;
-    animation: emberPulse 9s ease-in-out 2s infinite alternate;
+  .hero-video-bg {
+    z-index: 0;
+    display: none;
+    pointer-events: none;
   }
-  @keyframes emberPulse {
-    from { opacity: .42; }
-    to   { opacity: .62; }
+  .hero.hero-has-video .hero-video-bg {
+    display: block;
+  }
+  .hero-video-bg video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-width: 177.78vh;
+    min-height: 100vh;
+    transform: translate(-50%, -50%) scale(1.06);
+    border: 0;
+    display: block;
+    filter: saturate(.9) brightness(.62) contrast(1.02);
+    object-fit: cover;
+  }
+  .hero-video-fallback {
+    z-index: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.18)),
+      url("images/event_02.jpg") center center / cover no-repeat;
+  }
+  .hero.hero-has-video .hero-video-fallback {
+    display: none;
+  }
+  .hero-video-overlay {
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(3,1,10,.24) 0%, rgba(5,1,11,.16) 22%, rgba(6,1,12,.26) 48%, rgba(7,1,13,.74) 84%, rgba(0,0,26,.96) 100%),
+      radial-gradient(ellipse at 50% 100%, rgba(0,0,26,.10) 0%, rgba(0,0,26,.44) 58%, rgba(0,0,26,.82) 100%);
+    pointer-events: none;
   }
 
   /* Hero text — above canvas */
-  .hero-content { position: relative; z-index: 3; margin-bottom: 20px; }
+  .hero-content {
+    position: relative;
+    z-index: 4;
+    width: min(1280px, 100%);
+    margin: 0 auto 0;
+    text-align: center;
+  }
   .hero-eyebrow {
-    font-family: 'DM Mono', monospace; font-size: 14px; letter-spacing: .18em;
-    color: var(--white); margin-bottom: 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(13px, 1.1vw, 16px);
+    line-height: 1.3;
+    letter-spacing: .18em;
+    font-weight: 500;
+    color: rgba(255,255,255,.78);
+    max-width: 1080px;
+    margin: 0 auto 34px;
     opacity: 0; animation: up .65s ease .2s forwards;
   }
   .hero-logotype {
@@ -126,8 +148,8 @@
   }
   .hero-logotype-text {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(108px, 20vw, 228px);
-    line-height: .9; letter-spacing: -.01em;
+    font-size: clamp(152px, 27vw, 312px);
+    line-height: .88; letter-spacing: -.01em;
     color: var(--white); display: block;
     font-weight: 400;
   }
@@ -140,29 +162,34 @@
   .flame-wrap { display: inline; position: relative; }
   .flame-icon { display: none; }
   .hero-bottom {
-    display: flex; align-items: flex-end; justify-content: space-between;
-    margin-top: 48px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin-top: 18px;
+    gap: 0;
     opacity: 0; animation: up .65s ease .6s forwards;
   }
   .hero-desc {
-    font-size: 18px; font-weight: 500; line-height: 1.95; max-width: 460px;
-    border-left: 1.5px solid var(--white); padding-left: 22px;
-    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.65;
+    max-width: 1080px;
+    color: rgba(255,255,255,.94);
+    text-wrap: balance;
   }
   .hero-meta {
-    text-align: right; display: flex; flex-direction: column;
-    gap: 16px; align-items: flex-end;
+    text-align: center; display: flex; flex-direction: column;
+    gap: 14px; align-items: center;
   }
   .networking-badge {
-    font-family: 'DM Mono', monospace; font-size: 16px; letter-spacing: .16em;
-    color: var(--white); font-weight: 500;
+    font-family: 'DM Mono', monospace; font-size: 14px; letter-spacing: .18em;
+    color: rgba(255,255,255,.82); font-weight: 500;
   }
   .host-row {
     display: flex; align-items: center; gap: 8px;
-    font-family: 'DM Mono', monospace; font-size: 16px; letter-spacing: .1em;
-    color: var(--white);
+    font-family: 'DM Mono', monospace; font-size: 14px; letter-spacing: .12em;
+    color: rgba(255,255,255,.84);
   }
   .host-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--white); }
+  .ticker { display: none; }
 
   @keyframes up {
     from { opacity:0; transform:translateY(28px); }
@@ -380,13 +407,43 @@
 
   /* ── CTA (black bg + fire) ── */
   .cta-sec {
-    background:var(--black); color:var(--white);
+    background:
+      linear-gradient(180deg, #05010b 0%, #07010d 58%, #0a020e 100%);
+    color:var(--white);
     padding:120px 56px; text-align:center;
     position:relative; overflow:hidden; z-index:5;
   }
+  .cta-sec::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(255,190,95,.2) 0%, rgba(235,150,45,.1) 30%, rgba(210,120,30,.04) 52%, transparent 68%),
+      radial-gradient(circle, rgba(255,190,110,.035) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .cta-sec::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -140px;
+    transform: translateX(-50%);
+    width: 118vw;
+    height: 520px;
+    background: radial-gradient(ellipse at 50% 100%,
+      rgba(255,205,120,.34) 0%,
+      rgba(255,170,70,.18) 26%,
+      rgba(225,130,40,.08) 44%,
+      transparent 66%);
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(10px);
+    animation: ctaEmberPulse 6.5s ease-in-out infinite alternate;
+  }
   #cta-canvas {
     position:absolute; inset:0; width:100%; height:100%;
-    pointer-events:none; z-index:1; opacity:.22;
+    pointer-events:none; z-index:1; opacity:.2;
   }
   .cta-inner { position:relative; z-index:2; }
   .cta-title {
@@ -397,6 +454,10 @@
   }
   .cta-body { font-size:18px; font-weight:500; line-height:1.95; margin-bottom:48px; color:var(--white); }
   .cta-btns { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+  @keyframes ctaEmberPulse {
+    from { opacity: .62; transform: translateX(-50%) scale(1); }
+    to { opacity: .9; transform: translateX(-50%) scale(1.06); }
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -470,10 +531,194 @@
   .tone-red-1 { background: linear-gradient(135deg, #00001a 0%, #111b3f 42%, #334f96 100%); }
   .tone-red-2 { background: linear-gradient(135deg, #01051c 0%, #172650 44%, #426bb8 100%); }
   .tone-red-3 { background: linear-gradient(135deg, #00001a 0%, #152248 46%, #2d4f9d 100%); }
-  .partners-sec > img:not(.partners-img-mobile) { width:100%; max-width:960px; height:auto; display:block !important; }
-  .partners-img-mobile { width:100%; height:auto; display:none; }
+  .partners-sec { background: var(--white); }
+  .legacy-partners { display: none; }
+  .legacy-highlight { display: none; }
+  .partners-panel {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .partners-stage {
+    display: flex;
+    justify-content: center;
+  }
+  .partners-card {
+    width: 100%;
+    max-width: 1030px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .partners-img-desktop,
+  .partners-img-mobile {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+  }
+  .partners-img-mobile { display: none; }
 
+  .highlight-sec {
+    position: relative;
+    min-height: clamp(420px, 62vw, 820px);
+    overflow: hidden;
+    background: #050816;
+  }
+  .highlight-media {
+    position: absolute;
+    inset: 0;
+  }
+  .highlight-embed {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .highlight-sec.is-embed .highlight-embed {
+    display: block;
+  }
+  .highlight-sec.is-embed .highlight-fallback {
+    display: none;
+  }
+  .highlight-fallback {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: clamp(420px, 62vw, 820px);
+    text-decoration: none;
+    color: inherit;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.28)),
+      url("images/event_02.jpg") center center / cover no-repeat;
+  }
+  .highlight-fallback::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,208,120,.10), rgba(255,255,255,0) 28%),
+      linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.34));
+  }
+  .highlight-fallback-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.34);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 18px 40px rgba(0,0,26,.28);
+  }
+  .highlight-fallback-play::before {
+    content: "";
+    position: absolute;
+    left: 40px;
+    top: 31px;
+    border-left: 28px solid #fff;
+    border-top: 19px solid transparent;
+    border-bottom: 19px solid transparent;
+  }
+  .highlight-fallback-caption {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 22px;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .highlight-fallback-title {
+    color: #fff;
+    font-size: clamp(24px, 3vw, 38px);
+    line-height: 1.06;
+    letter-spacing: -.03em;
+    font-weight: 800;
+  }
+  .highlight-fallback-sub {
+    margin-top: 8px;
+    color: rgba(255,255,255,.82);
+    font-size: 15px;
+    line-height: 1.58;
+    font-weight: 500;
+  }
+  .highlight-fallback-chip {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.28);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+  }
+  .highlight-media iframe {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-width: 177.78vh;
+    min-height: 100vh;
+    transform: translate(-50%, -50%);
+    border: 0;
+    display: block;
+  }
+  .highlight-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    pointer-events: none;
+  }
+  .highlight-overlay .mono-label {
+    color: #fff;
+    text-shadow: 0 10px 28px rgba(0,0,0,.34);
+  }
 
+  .moments-sec {
+    background:
+      radial-gradient(circle at 80% 0%, rgba(12,95,219,.08), transparent 24%),
+      linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  }
+  .moments-grid {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 18px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .moments-stack {
+    display: grid;
+    gap: 18px;
+  }
+  .moment-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    min-height: 280px;
+    background: #050816;
+    box-shadow: 0 18px 50px rgba(0,0,26,.12);
+  }
+  .moment-card.tall { min-height: 580px; }
+  .moment-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
   /* ── SPEAKER PHOTO GRID (새 형식) ── */
   .speakers-sec {
     padding-top: 132px;
@@ -745,13 +990,13 @@
     .nav-logo span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .nav-links { display:none; }
     .hero,.pad,.pad-sm { padding-left:24px; padding-right:24px; }
-    .hero { padding-top: 112px; padding-bottom: 56px; min-height: auto; }
-    .hero-content { margin-bottom: 16px; }
-    .hero-eyebrow { font-size: 14px; letter-spacing: .14em; margin-bottom: 22px; }
-    .hero-logotype-text { font-size: clamp(92px, 20vw, 206px); line-height: .94; }
-    .hero-desc { font-size: 17px; line-height: 1.8; max-width: 100%; }
-    .networking-badge { font-size: 15px; letter-spacing: .12em; }
-    .host-row { font-size: 15px; }
+    .hero { padding-top: 112px; padding-bottom: 56px; min-height: 88vh; justify-content: flex-end; }
+    .hero-content { margin-bottom: 16px; text-align: center; }
+    .hero-eyebrow { font-size: 13px; letter-spacing: .16em; margin-bottom: 24px; }
+    .hero-logotype-text { font-size: clamp(123px, 26.7vw, 275px); line-height: .94; }
+    .hero-desc { font-size: 18px; line-height: 1.7; max-width: 100%; }
+    .networking-badge { font-size: 14px; letter-spacing: .16em; }
+    .host-row { font-size: 14px; }
     .sec-title { font-size: clamp(42px, 7.6vw, 68px); line-height: 1.12; margin-bottom: 24px; }
     .sec-body, .cta-body, .speakers-kicker, .who-b, .tl-b, .info-val, .ss-p { font-size: 17px; line-height: 1.8; }
     .mono-label, .info-mono, .gallery-year, .ft-l, .ft-sub, .ft-r, .ft-copy, .strip-desc, .check-num, .spk-cta-label { font-size: 15px; }
@@ -792,8 +1037,8 @@
     .spk-featured-wrap { grid-row: span 1; padding: 28px 24px; }
     .spk-cta-banner { flex-direction:column; align-items:flex-start; padding:32px 24px; }
     .gallery-grid { grid-template-columns:repeat(2,1fr); }
-    .hero-bottom { flex-direction:column; gap:32px; align-items:flex-start; }
-    .hero-meta { align-items:flex-start; text-align:left; }
+    .hero-bottom { flex-direction:column; gap:0; align-items:center; }
+    .hero-meta { align-items:center; text-align:center; }
     footer { flex-direction:column; gap:20px; }
     .ft-r { text-align:left; }
     .partner { flex:1 1 33%; }
@@ -811,15 +1056,15 @@
       letter-spacing: .07em;
     }
     .nav-cta { display: none; }
-    .hero { padding-top: 100px; padding-bottom: 40px; }
-    .hero-content { margin-bottom: 10px; }
-    .hero-eyebrow { font-size: 14px; letter-spacing: .1em; margin-top: 80px; margin-bottom: 18px; }
-    .hero-logotype-text { font-size: clamp(82px, 20vw, 138px); line-height: .94; }
-    .hero-bottom { gap: 24px; margin-top: 28px; }
-    .hero-desc { font-size: 16px; line-height: 1.7; padding-left: 16px; }
-    .hero-meta { gap: 12px; }
-    .networking-badge { font-size: 13px; letter-spacing: .1em; }
-    .host-row { font-size: 13px; letter-spacing: .06em; }
+    .hero { padding-top: 100px; padding-bottom: 40px; min-height: auto; }
+    .hero-content { margin-bottom: 10px; text-align: center; }
+    .hero-eyebrow { font-size: 12px; line-height: 1.3; letter-spacing: .14em; margin-top: 54px; margin-bottom: 18px; }
+    .hero-logotype-text { font-size: clamp(164px, 40vw, 276px); line-height: .94; }
+    .hero-bottom { gap: 0; margin-top: 22px; align-items: center; }
+    .hero-desc { font-size: 16px; line-height: 1.65; max-width: 100%; }
+    .hero-meta { gap: 12px; align-items: center; text-align: center; }
+    .networking-badge { font-size: 13px; letter-spacing: .14em; }
+    .host-row { font-size: 13px; letter-spacing: .08em; }
     .sec-title { font-size: clamp(34px, 10vw, 46px); line-height: 1.14; letter-spacing: -.025em; }
     .sec-body, .cta-body, .speakers-kicker, .who-b, .tl-b, .info-val, .ss-p, .check-txt { font-size: 16px; line-height: 1.72; }
     .mono-label, .info-mono, .gallery-year, .ft-l, .ft-sub, .ft-r, .ft-copy, .strip-desc, .check-num, .spk-cta-label { font-size: 14px; }
@@ -833,7 +1078,7 @@
     .cta-btns,
     .hero-actions {
       flex-direction: column;
-      align-items: stretch;
+      align-items: center;
       gap: 10px;
     }
     .cta-sec { padding: 88px 24px 56px; }
@@ -882,6 +1127,21 @@
     .g-info-title, .g-info-meta { font-size: 14px; line-height: 1.5; }
     .partners-wrap { margin-top: 36px; }
     .partner { flex: 1 1 50%; min-width: 0; padding: 22px 12px; font-size: 14px; }
+    .partners-panel { padding: 0; border-radius: 0; }
+    .partners-card { width: 100%; padding: 0; border-radius: 0; }
+    .partners-img-desktop { display: none !important; }
+    .partners-img-mobile { display: block !important; }
+    .highlight-sec { min-height: 260px; }
+    .moments-grid { grid-template-columns: 1fr; gap: 14px; }
+    .moments-stack { gap: 14px; }
+    .moment-card { min-height: 220px; border-radius: 14px; }
+    .moment-card.tall { min-height: 340px; }
+    .highlight-fallback-play { width: 74px; height: 74px; }
+    .highlight-fallback-play::before { left: 29px; top: 22px; border-left-width: 20px; border-top-width: 14px; border-bottom-width: 14px; }
+    .highlight-fallback-caption { left: 16px; right: 16px; bottom: 16px; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .highlight-fallback-title { font-size: 22px; }
+    .highlight-fallback-sub { font-size: 14px; }
+    .highlight-overlay { padding: 18px 20px; }
     .host-logo { height: 24px; margin-bottom: 20px; }
     .footer-logo { height: 20px; }
     footer { padding: 32px 20px; align-items: flex-start; text-align: left; }
@@ -912,44 +1172,24 @@
 
 <!-- HERO (fire canvas lives here) -->
 <section class="hero">
-  <canvas id="fire-canvas"></canvas>
-  <div class="ember-glow"></div>
-  <div class="hero-glow-2"></div>
+  <div class="hero-video-bg" aria-hidden="true">
+    <video id="hero-video" autoplay muted playsinline preload="auto"></video>
+  </div>
+  <div class="hero-video-fallback" aria-hidden="true"></div>
+  <div class="hero-video-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">AI 사업개발 커뮤니티 네트워킹 토크쇼</p>
+    <p class="hero-eyebrow">AI/DX NETWORKING NIGHT</p>
 
     <div class="hero-logotype">
       <span class="hero-logotype-text">AI <span class="flame-wrap"><span class="flame-icon">🔥</span><span class="ignite-word">I</span></span><span class="ignite-word">gnite</span></span>
     </div>
 
     <div class="hero-bottom">
-      <p class="hero-desc">
-        AI 실무자들이 모여 트렌드를 공유하고<br>
-        미래를 함께 설계하는<br>
-        인사이트 &amp; 네트워킹 이벤트
-      </p>
-      <div class="hero-meta">
-        <span class="networking-badge">AI/DX NETWORKING NIGHT</span>
-        <div class="hero-actions">
-          <a class="btn-white" href="#register">참가 신청 →</a>
-        </div>
-        <div class="host-row">
-          <div class="host-dot"></div>
-          <span style="font-family:'DM Mono',monospace;font-size:16px;letter-spacing:.08em;color:var(--white);">주관&nbsp;</span>
-          <span style="font-family:'DM Mono',monospace;font-size:16px;letter-spacing:.1em;font-weight:700;color:var(--white);">SELECTSTAR</span>
-        </div>
-      </div>
+      <p class="hero-desc">AI 실무자들이 모여 트렌드를 공유하고 미래를 함께 설계하는 인사이트 &amp; 네트워킹 이벤트</p>
     </div>
   </div>
 </section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item">AI IGNITE</span><span class="ticker-item">NETWORKING</span><span class="ticker-item">INSIGHT</span><span class="ticker-item">AI/DX NETWORKING NIGHT</span><span class="ticker-item">SELECTSTAR</span><span class="ticker-item">AI IGNITE</span><span class="ticker-item">NETWORKING</span><span class="ticker-item">INSIGHT</span><span class="ticker-item">AI/DX NETWORKING NIGHT</span><span class="ticker-item">SELECTSTAR</span><span class="ticker-item">AI IGNITE</span><span class="ticker-item">NETWORKING</span><span class="ticker-item">INSIGHT</span><span class="ticker-item">AI/DX NETWORKING NIGHT</span><span class="ticker-item">SELECTSTAR</span><span class="ticker-item">AI IGNITE</span><span class="ticker-item">NETWORKING</span><span class="ticker-item">INSIGHT</span><span class="ticker-item">AI/DX NETWORKING NIGHT</span><span class="ticker-item">SELECTSTAR</span>
-  </div>
-</div>
 
 <!-- NUMBERS -->
 <div class="strip s">
@@ -958,8 +1198,6 @@
   <div class="strip-cell"><span class="strip-num">30+</span><span class="strip-desc">연사 참여</span></div>
   <div class="strip-cell"><span class="strip-num">100%</span><span class="strip-desc">무료 참가</span></div>
 </div>
-
-<hr class="rule s">
 
 <!-- ABOUT (off-white) -->
 <section class="s bg-off pad" id="about">
@@ -982,6 +1220,22 @@
       <div class="info-row"><div class="info-mono">참가비</div><div class="info-val">무료 (사전 신청 필수)</div></div>
       <div class="info-row"><div class="info-mono">형식</div><div class="info-val">강연 + Q&A + 자유 네트워킹</div></div>
       <div style="margin-top:36px;"><a class="btn-white" href="#register" style="display:block;text-align:center;">사전 알림 신청하기 →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="s pad-sm moments-sec">
+  <div class="moments-grid">
+    <div class="moment-card tall">
+      <img src="images/event_02.jpg" alt="AI Ignite 메인 세션 현장 전경" loading="lazy">
+    </div>
+    <div class="moments-stack">
+      <div class="moment-card">
+        <img src="images/event_07.jpg" alt="AI Ignite 세미나 현장 이미지" loading="lazy">
+      </div>
+      <div class="moment-card">
+        <img src="images/event_09.jpg" alt="AI Ignite 커뮤니티 세션 현장 이미지" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -1039,7 +1293,6 @@
       <div class="spk-org">Stanford University · Landing AI CEO · AI Fund 창립자</div>
       <div class="spk-name">앤드류 응, CEO</div>
       <div class="spk-role-sm">CEO</div>
-      <p class="spk-featured-desc">2023 AI Ignite 최대 규모 연사<br>(과기정통부·NIPA 후원)</p>
     </div>
 
     <div class="spk-card">
@@ -1498,8 +1751,40 @@
 
 <hr class="rule s">
 
+<section class="s pad-sm partners-sec">
+  <p class="mono-label">TRUSTED BY</p>
+  <h2 class="sec-title" style="font-size:clamp(36px,4vw,52px);">함께한 파트너 & 연사</h2>
+  <p class="sec-body" style="margin-bottom:40px;">지금까지 AI Ignite와 함께한 기업과 연사들입니다.</p>
+  <div class="partners-panel">
+    <div class="partners-stage">
+      <div class="partners-card">
+        <img src="images/history.png" alt="파트너 및 연사 로고" class="partners-img-desktop">
+        <img src="images/history_m.png" alt="파트너 및 연사 로고 모바일" class="partners-img-mobile">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s pad-sm highlight-sec legacy-highlight">
+  <p class="mono-label">HIGHLIGHT VIDEO</p>
+  <div class="highlight-card">
+    <div class="highlight-media">
+      <a class="highlight-fallback" href="https://www.youtube.com/live/kgXofIj6ke4?si=k3L4KvIke9hL2jT-" target="_blank" rel="noopener noreferrer" aria-label="AI Ignite 하이라이트 영상 열기">
+        <span class="highlight-fallback-play" aria-hidden="true"></span>
+        <div class="highlight-fallback-caption">
+          <div>
+            <div class="highlight-fallback-title">AI Talk with Andrew Ng</div>
+            <div class="highlight-fallback-sub">로컬 미리보기에서도 깨지지 않도록 하이라이트 영상을 썸네일 카드로 연결했습니다.</div>
+          </div>
+          <span class="highlight-fallback-chip">WATCH</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- PARTNERS (white) -->
-<section class="s bg-white pad-sm partners-sec">
+<section class="s bg-white pad-sm partners-sec legacy-partners">
   <p class="mono-label">TRUSTED BY</p>
   <h2 class="sec-title" style="font-size:clamp(36px,4vw,52px);">함께한 파트너 & 연사</h2>
   <p class="sec-body" style="margin-bottom:40px;">지금까지 AI Ignite와 함께한 기업과 연사들입니다.</p>
@@ -1618,11 +1903,45 @@ function FireCanvas(canvas, opts) {
   })();
 }
 
-/* Hero canvas — lighter, floats upward through white bg */
-FireCanvas(document.getElementById('fire-canvas'), { count: 96 });
-
 /* CTA canvas — denser, dark bg */
 FireCanvas(document.getElementById('cta-canvas'), { count: 200 });
+
+const heroVideo = document.getElementById('hero-video');
+const heroPlaylist = ['videos/hero_03.mp4'];
+let heroIndex = 0;
+
+function playHeroVideo(index) {
+  if (!heroVideo || !heroPlaylist[index]) return;
+  heroVideo.src = heroPlaylist[index];
+  heroVideo.load();
+  const p = heroVideo.play();
+  if (p && typeof p.catch === 'function') p.catch(() => {});
+}
+
+if (heroVideo) {
+  document.querySelectorAll('.hero').forEach((section) => {
+    section.classList.add('hero-has-video');
+  });
+
+  playHeroVideo(heroIndex);
+
+  heroVideo.addEventListener('ended', () => {
+    heroIndex = (heroIndex + 1) % heroPlaylist.length;
+    playHeroVideo(heroIndex);
+  });
+
+  heroVideo.addEventListener('error', () => {
+    document.querySelectorAll('.hero').forEach((section) => {
+      section.classList.remove('hero-has-video');
+    });
+  });
+}
+
+if (window.location.protocol !== 'file:') {
+  document.querySelectorAll('.highlight-sec').forEach((section) => {
+    section.classList.add('is-embed');
+  });
+}
 </script>
 </body>
 </html>
