@@ -177,6 +177,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-logo > span:not(.nav-logo-badge):not(.nav-logo-divider):not(.nav-logo-series) {
     display: none;
   }
+  .nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 999px;
+    background: rgba(255,255,255,.06);
+    color: var(--white);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: background .18s ease;
+  }
+  .nav-toggle span::before,
+  .nav-toggle span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform .18s ease, top .18s ease;
+  }
+  .nav-toggle span::before { top: -6px; }
+  .nav-toggle span::after { top: 6px; }
+  nav.is-open .nav-toggle span { background: transparent; }
+  nav.is-open .nav-toggle span::before { top: 0; transform: rotate(45deg); }
+  nav.is-open .nav-toggle span::after { top: 0; transform: rotate(-45deg); }
   .nav-links { display: flex; gap: 40px; list-style: none; }
   .nav-links a {
     font-family: 'Pretendard', sans-serif; font-size: 16px; letter-spacing: -.01em;
@@ -1160,7 +1198,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-logo-mark { width: 182px; }
     .nav-logo-divider { font-size: 16px; }
     .nav-logo-series { font-size: 14px; letter-spacing: .14em; }
-    .nav-links { display:none; }
+    .nav-toggle { display: inline-flex; }
+    .nav-links {
+      order: 5;
+      display: none;
+      flex: 1 0 100%;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      padding: 14px 0 2px;
+      margin-top: 6px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    nav.is-open .nav-links { display: flex; }
+    .nav-links a {
+      display: block;
+      padding: 13px 2px;
+      font-size: 16px;
+    }
     .hero,.pad,.pad-sm { padding-left:24px; padding-right:24px; }
     .hero { padding-top: 156px; padding-bottom: 56px; min-height: 88vh; justify-content: flex-end; }
     .hero-content { margin-bottom: 16px; text-align: center; }
@@ -1378,6 +1433,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="nav-logo-divider">|</span>
     <span class="nav-logo-series">AI IGNITE</span>
   </a>
+  <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
+    <span aria-hidden="true"></span>
+  </button>
   <ul class="nav-links">
     <li><a href="https://event.selectstar.ai/#about">소개</a></li>
     <li><a href="https://event.selectstar.ai/#who">참가대상</a></li>
@@ -1723,5 +1781,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ft-copy">© 2026 SELECTSTAR Inc.</div>
   </div>
 </footer>
+<script>
+const nav = document.querySelector('nav');
+const navToggle = document.querySelector('.nav-toggle');
+
+navToggle?.addEventListener('click', () => {
+  const isOpen = nav?.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  navToggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+});
+
+document.querySelectorAll('.nav-links a').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav?.classList.remove('is-open');
+    navToggle?.setAttribute('aria-expanded', 'false');
+    navToggle?.setAttribute('aria-label', '메뉴 열기');
+  });
+});
+</script>
 </body>
 </html>
