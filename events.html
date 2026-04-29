@@ -50,6 +50,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     overflow-x: hidden;
   }
 
+  .mobile-top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 340;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 24px;
+    background: #007aff;
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -.01em;
+    box-shadow: 0 10px 22px rgba(0, 0, 26, .14);
+  }
+
   .webinar-popup {
     position: fixed;
     inset: 0;
@@ -107,7 +129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+    position: fixed; top: 44px; left: 0; right: 0; z-index: 300;
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 56px;
     background: rgba(4,1,11,0.88);
@@ -678,6 +700,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     letter-spacing: -.01em;
     white-space: nowrap;
     box-shadow: 0 8px 20px rgba(3, 28, 89, .12);
+  }
+  .g-open-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255, 243, 231, .96);
+    border: 1px solid rgba(255, 184, 110, .82);
+    color: #d9641a;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    box-shadow: 0 10px 24px rgba(122, 44, 8, .14);
+  }
+  .tone-live {
+    background:
+      linear-gradient(135deg, rgba(89, 18, 8, .92) 0%, rgba(186, 72, 20, .88) 52%, rgba(255, 154, 58, .82) 100%),
+      radial-gradient(circle at 78% 22%, rgba(255, 214, 160, .32), transparent 42%);
+  }
+  .tone-live::after {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)),
+      linear-gradient(180deg, rgba(0,0,26,.02), rgba(0,0,26,.18));
   }
   .g-title { font-family:"Pretendard",sans-serif; font-size:22px; line-height:1.18; color:#fff; margin:10px 0 6px; font-weight:800; letter-spacing:-.02em; }
   .g-sub { font-size:14px; color:rgba(255,255,255,.76); line-height:1.65; font-weight:500; }
@@ -1271,6 +1320,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .partner { flex:1 1 33%; }
   }
   @media (max-width:600px){
+    .mobile-top-banner {
+      min-height: 44px;
+      padding: 10px 16px;
+      font-size: 14px;
+    }
     .events-hero.pad { padding-top: 204px; }
     .webinar-popup {
       padding: 18px;
@@ -1289,7 +1343,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: 22px;
     }
     nav {
-      top: 0;
+      top: 44px;
       padding: 14px 16px;
       gap: 12px;
       align-items: flex-start;
@@ -1369,7 +1423,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .yt-link { width: 100%; }
     .g-thumb { height: 204px; padding: 16px; }
     .g-badge, .g-date { font-size: 12px; }
-    .g-resource-badge {
+    .g-resource-badge,
+    .g-open-badge {
       min-height: 22px;
       padding: 4px 9px;
       font-size: 11px;
@@ -1421,6 +1476,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<a class="mobile-top-banner" href="https://event.selectstar.ai/?utm_source=community&utm_medium=organic&utm_campaign=lead_aiignite&utm_content=cta_post" target="_blank" rel="noopener noreferrer">AI Ignite 오프라인 행사 · 4/29 · 선착순 100명 → 지금 신청</a>
+
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="https://selectstar.ai?utm_source=selectstar&utm_medium=owned&utm_campaign=lead_aiignite&utm_content=cta_header">
@@ -1453,6 +1510,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="s bg-off pad" id="gallery">
   <div class="gallery-year">2026</div>
   <div class="gallery-grid">
+
+    <a class="g-card" href="https://event-us.kr/selectstar/event/125199?utm_source=selectstar&utm_medium=banner&utm_campaign=ahekpattp0" target="_blank">
+      <div class="g-thumb tone-live">
+        <div class="g-badge-row">
+          <div class="g-badge">2026.04.29 · OFFLINE EVENT</div>
+          <div class="g-open-badge">모집중</div>
+        </div>
+        <div>
+          <div class="g-title">AI 기본법에 대응하는<br>안전한 인프라 구성법</div>
+          <div class="g-sub">선착순 100명 모집<br>4/29 현장 세션</div>
+        </div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[4월] AI 기본법에 대응하는 안전한 인프라 구성법</div>
+      </div>
+    </a>
 
     <a class="g-card" href="https://event-us.kr/selectstar/event/124315" target="_blank">
       <div class="g-thumb tone-blue-1">
