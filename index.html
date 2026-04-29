@@ -50,86 +50,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     overflow-x: hidden;
   }
 
-  .mobile-top-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 340;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: 10px 24px;
-    background: #007aff;
-    color: var(--white);
-    text-decoration: none;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 800;
-    line-height: 1.35;
-    letter-spacing: -.01em;
-    box-shadow: 0 10px 22px rgba(0, 0, 26, .14);
-  }
-
-  .webinar-popup {
-    position: fixed;
-    inset: 0;
-    z-index: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px;
-    background: rgba(0, 0, 26, .58);
-    backdrop-filter: blur(10px);
-  }
-  .webinar-popup.is-hidden {
-    display: none;
-  }
-  .webinar-popup-dialog {
-    position: relative;
-    width: min(520px, calc(100vw - 40px));
-    line-height: 0;
-    filter: drop-shadow(0 30px 70px rgba(0, 0, 26, .34));
-  }
-  .webinar-popup-link {
-    display: block;
-    overflow: hidden;
-    border-radius: 22px;
-    background: var(--black);
-    text-decoration: none;
-  }
-  .webinar-popup-link img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-  }
-  .webinar-popup-close {
-    position: absolute;
-    top: -14px;
-    right: -14px;
-    width: 42px;
-    height: 42px;
-    border: 0;
-    border-radius: 999px;
-    background: var(--white);
-    color: var(--black);
-    font-size: 24px;
-    line-height: 1;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 16px 34px rgba(0, 0, 26, .22);
-    transition: transform .18s ease, opacity .18s ease;
-  }
-  .webinar-popup-close:hover {
-    transform: translateY(-1px);
-    opacity: .88;
-  }
-
   /* ── NAV ── */
   nav {
-    position: fixed; top: 44px; left: 0; right: 0; z-index: 300;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 300;
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 56px;
     background: rgba(4,1,11,0.88);
@@ -1270,29 +1193,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .partner { flex:1 1 33%; }
   }
   @media (max-width:600px){
-    .mobile-top-banner {
-      min-height: 44px;
-      padding: 10px 16px;
-      font-size: 14px;
-    }
-    .webinar-popup {
-      padding: 18px;
-    }
-    .webinar-popup-dialog {
-      width: min(420px, calc(100vw - 36px));
-    }
-    .webinar-popup-link {
-      border-radius: 16px;
-    }
-    .webinar-popup-close {
-      top: 10px;
-      right: 10px;
-      width: 38px;
-      height: 38px;
-      font-size: 22px;
-    }
     nav {
-      top: 44px;
+      top: 0;
       padding: 14px 16px;
       gap: 12px;
       align-items: flex-start;
@@ -1419,17 +1321,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<a class="mobile-top-banner" href="https://event-us.kr/selectstar/event/124315" target="_blank" rel="noopener noreferrer">LLM 평가 실무 방법 공개 (무료 웨비나) • 지금 신청 &gt;&gt;</a>
-
-<div class="webinar-popup" id="webinar-popup" role="dialog" aria-modal="true" aria-label="AI Safety 웨비나 신청 안내">
-  <div class="webinar-popup-dialog">
-    <button class="webinar-popup-close" type="button" aria-label="팝업 닫기">×</button>
-    <a class="webinar-popup-link" href="https://tally.so/r/44oeOO" target="_blank" rel="noopener noreferrer">
-      <img src="images/3590.1.png" alt="AI Safety의 격차를 만드는 데이터 웨비나 신청">
-    </a>
-  </div>
-</div>
-
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="https://selectstar.ai?utm_source=selectstar&utm_medium=owned&utm_campaign=lead_aiignite&utm_content=cta_header">
@@ -1450,7 +1341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#speakers">연사</a></li>
     <li><a href="events.html">행사</a></li>
   </ul>
-  <a class="nav-cta" href="https://event-us.kr/selectstar/event/124315" target="_blank" rel="noopener noreferrer">참가 신청</a>
+  <a class="nav-cta" href="https://tally.so/r/kd0Bzd?utm_source=partner&utm_medium=organic&utm_campaign=lead_aiignite" target="_blank" rel="noopener noreferrer">참가 신청</a>
 </nav>
 
 <!-- HERO (fire canvas lives here) -->
@@ -1830,32 +1721,6 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
     navToggle?.setAttribute('aria-expanded', 'false');
     navToggle?.setAttribute('aria-label', '메뉴 열기');
   });
-});
-
-const webinarPopup = document.getElementById('webinar-popup');
-const webinarPopupClose = document.querySelector('.webinar-popup-close');
-const webinarPopupStorageKey = 'aiIgniteWebinarPopupClosed';
-
-function closeWebinarPopup() {
-  if (!webinarPopup) return;
-  webinarPopup.classList.add('is-hidden');
-  try {
-    sessionStorage.setItem(webinarPopupStorageKey, 'true');
-  } catch (e) {}
-}
-
-try {
-  if (sessionStorage.getItem(webinarPopupStorageKey) === 'true') {
-    webinarPopup?.classList.add('is-hidden');
-  }
-} catch (e) {}
-
-webinarPopupClose?.addEventListener('click', closeWebinarPopup);
-webinarPopup?.addEventListener('click', (event) => {
-  if (event.target === webinarPopup) closeWebinarPopup();
-});
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') closeWebinarPopup();
 });
 
 /* ── SHARED FIRE PARTICLE FACTORY ── */
