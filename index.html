@@ -72,6 +72,83 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     box-shadow: 0 10px 22px rgba(0, 0, 26, .14);
   }
 
+  .event-popup[hidden] {
+    display: none;
+  }
+  .event-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 650;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(0, 0, 26, .62);
+    backdrop-filter: blur(10px);
+  }
+  .event-popup-dialog {
+    position: relative;
+    width: min(540px, calc(100vw - 40px));
+    max-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(0 30px 70px rgba(0, 0, 26, .34));
+  }
+  .event-popup-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 22px 22px 0 0;
+    background: var(--black);
+    text-decoration: none;
+  }
+  .event-popup-link img {
+    display: block;
+    width: 100%;
+    max-height: min(675px, calc(100vh - 148px));
+    object-fit: contain;
+  }
+  .event-popup-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 0 0 22px 22px;
+    background: var(--white);
+  }
+  .event-popup-today,
+  .event-popup-close {
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform .18s ease, opacity .18s ease, background .18s ease;
+  }
+  .event-popup-today {
+    min-height: 42px;
+    padding: 0 18px;
+    background: rgba(0, 0, 26, .08);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+  }
+  .event-popup-close {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 500;
+  }
+  .event-popup-today:hover,
+  .event-popup-close:hover {
+    transform: translateY(-1px);
+    opacity: .88;
+  }
+
   /* ── NAV ── */
   nav {
     position: fixed; top: 44px; left: 0; right: 0; z-index: 300;
@@ -1220,6 +1297,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 10px 16px;
       font-size: 14px;
     }
+    .event-popup {
+      align-items: flex-end;
+      padding: 18px;
+    }
+    .event-popup-dialog {
+      width: min(420px, calc(100vw - 36px));
+      max-height: calc(100vh - 36px);
+    }
+    .event-popup-link {
+      border-radius: 16px 16px 0 0;
+    }
+    .event-popup-link img {
+      max-height: calc(100vh - 130px);
+    }
+    .event-popup-actions {
+      border-radius: 0 0 16px 16px;
+      padding: 10px;
+    }
+    .event-popup-today {
+      min-height: 40px;
+      padding: 0 14px;
+      font-size: 13px;
+    }
+    .event-popup-close {
+      width: 40px;
+      height: 40px;
+      flex-basis: 40px;
+      font-size: 22px;
+    }
     nav {
       top: 44px;
       padding: 14px 16px;
@@ -1347,6 +1453,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PT9227WL"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+<div class="event-popup" id="event-popup" role="dialog" aria-modal="true" aria-label="AI Ignite 행사 신청 팝업" hidden>
+  <div class="event-popup-dialog">
+    <a class="event-popup-link" href="https://tally.so/r/Pd2JVb" target="_blank" rel="noopener noreferrer" aria-label="AI Ignite 행사 신청 폼 열기">
+      <img src="images/event_1.png" alt="AI Ignite 행사 안내" loading="eager">
+    </a>
+    <div class="event-popup-actions">
+      <button class="event-popup-today" type="button">오늘 하루 보지 않기</button>
+      <button class="event-popup-close" type="button" aria-label="팝업 닫기">×</button>
+    </div>
+  </div>
+</div>
 
 <a class="mobile-top-banner" href="https://event-us.kr/selectstar/event/125199?utm_source=selectstar&utm_medium=banner&utm_campaign=ahekpattp0" target="_blank" rel="noopener noreferrer">AI Ignite 오프라인 행사 · 4/29 · 선착순 100명 → 지금 신청</a>
 
@@ -1750,6 +1868,53 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
     navToggle?.setAttribute('aria-expanded', 'false');
     navToggle?.setAttribute('aria-label', '메뉴 열기');
   });
+});
+
+const eventPopup = document.getElementById('event-popup');
+const eventPopupClose = eventPopup?.querySelector('.event-popup-close');
+const eventPopupToday = eventPopup?.querySelector('.event-popup-today');
+const eventPopupStorageKey = 'aiIgniteEventPopupHiddenUntil';
+
+function getNextMidnightTimestamp() {
+  const tomorrow = new Date();
+  tomorrow.setHours(24, 0, 0, 0);
+  return tomorrow.getTime();
+}
+
+function closeEventPopup() {
+  if (!eventPopup) return;
+  eventPopup.hidden = true;
+}
+
+function hideEventPopupToday() {
+  try {
+    localStorage.setItem(eventPopupStorageKey, String(getNextMidnightTimestamp()));
+  } catch (error) {
+    // Storage may be unavailable in private browsing or strict browser modes.
+  }
+  closeEventPopup();
+}
+
+function shouldShowEventPopup() {
+  try {
+    const hiddenUntil = Number(localStorage.getItem(eventPopupStorageKey) || 0);
+    return !hiddenUntil || Date.now() >= hiddenUntil;
+  } catch (error) {
+    return true;
+  }
+}
+
+if (eventPopup && shouldShowEventPopup()) {
+  eventPopup.hidden = false;
+}
+
+eventPopupClose?.addEventListener('click', closeEventPopup);
+eventPopupToday?.addEventListener('click', hideEventPopupToday);
+eventPopup?.addEventListener('click', (event) => {
+  if (event.target === eventPopup) closeEventPopup();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeEventPopup();
 });
 
 /* ── SHARED FIRE PARTICLE FACTORY ── */
