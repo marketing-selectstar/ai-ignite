@@ -713,15 +713,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     min-height: 24px;
     padding: 4px 10px;
     border-radius: 999px;
-    background: rgba(255, 243, 231, .96);
-    border: 1px solid rgba(255, 184, 110, .82);
-    color: #d9641a;
+    background: rgba(255, 235, 235, .96);
+    border: 1px solid rgba(255, 116, 116, .82);
+    color: #d71920;
     font-size: 12px;
     font-weight: 800;
     line-height: 1;
     letter-spacing: -.01em;
     white-space: nowrap;
-    box-shadow: 0 10px 24px rgba(122, 44, 8, .14);
+    box-shadow: 0 10px 24px rgba(128, 12, 18, .16);
+  }
+  .g-blog-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(234, 242, 255, .95);
+    border: 1px solid rgba(124, 169, 255, .72);
+    color: #0c5fdb;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(3, 28, 89, .12);
   }
   .tone-live {
     background:
@@ -1407,6 +1424,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .g-thumb { height: 204px; padding: 16px; }
     .g-badge, .g-date { font-size: 12px; }
     .g-resource-badge,
+    .g-blog-badge,
     .g-open-badge {
       min-height: 22px;
       padding: 4px 9px;
@@ -1496,6 +1514,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="g-thumb tone-blue-1">
         <div class="g-badge-row">
           <div class="g-badge">2026.05.26 · OFFLINE EVENT</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
         </div>
         <div>
           <div class="g-title">AI 기본법에 대응하는<br>안전한 인프라 구성법</div>
@@ -1509,7 +1528,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/816W9Y" target="_blank">
       <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2026.04.29 · LIVE WEBINAR</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2026.04.29 · LIVE WEBINAR</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">AI Safety의<br>격차를 만드는 데이터</div>
           <div class="g-sub">LLM 리스크를 통제하는 실전 데이터 설계<br>김정훈 · 셀렉트스타 프로덕트 기획자</div>
@@ -1525,6 +1547,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="g-badge-row">
           <div class="g-badge">2026.03.18 · WEBINAR</div>
           <div class="g-resource-badge">발표자료 제공</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
         </div>
         <div>
           <div class="g-title">커스텀 평가 체계로<br>LLM 서비스 평가 기준 만들기</div>
@@ -1543,7 +1566,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/b5YDPE" target="_blank">
       <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2025.08.19 · WEBINAR</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2025.08.19 · WEBINAR</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">How Citi bank Uses AI<br>in BFSI</div>
           <div class="g-sub">금융권 AI 활용 사례<br>SELECTSTAR Webinar</div>
@@ -1572,9 +1598,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </a>
 
-    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-2408/" target="_blank">
+    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-2408/">
       <div class="g-thumb tone-blue-2">
-        <div class="g-badge">2024 AI/DX NETWORKING NIGHT</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2024 AI/DX NETWORKING NIGHT</div>
+          <div class="g-blog-badge">블로그 글 보기</div>
+        </div>
         <div>
           <div class="g-title">AI 시대의<br>경쟁 우위 전략</div>
           <div class="g-sub">황보현우 · 홍콩과기대 겸임교수<br>후원 sba 서울경제진흥원</div>
@@ -1587,7 +1616,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://event-us.kr/selectstar/event/87719" target="_blank">
       <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2024.07.24 · AI WEBINAR</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2024.07.24 · AI WEBINAR</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">LLM 신뢰성<br>어떻게 평가할 수 있을까?</div>
           <div class="g-sub">LLM 기술적 특징과 AI 신뢰성 정의<br>신뢰성 검증이 어려운 이유</div>
@@ -1598,22 +1630,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </a>
 
-    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-shinhan-bank-llm-talk/" target="_blank">
+    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-shinhan-bank-llm-talk/">
       <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2024.07.11 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2024.07.11 · AI IGNITE</div>
+          <div class="g-blog-badge">블로그 글 보기</div>
+        </div>
         <div>
-          <div class="g-title">금융권 LLM<br>도입 전략</div>
-          <div class="g-sub">사례 및 기술 적용<br>금융 AI 실무</div>
+          <div class="g-title">금융권 LLM 도입<br>경험을 공유하다</div>
+          <div class="g-sub">사례 및 기술 적용<br>신한은행 박지호 프로</div>
         </div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[7월] 금융권 LLM 도입: 사례 및 기술 적용</div>
+        <div class="g-info-title">[7월] 금융권 LLM 도입 경험을 공유하다</div>
       </div>
     </a>
 
     <a class="g-card" href="https://selectstar.ai/blog/notice/ai-red-team-review/" target="_blank">
       <div class="g-thumb tone-red-2">
-        <div class="g-badge">Gen AI Korea 2024 · COEX Hall B2</div>
+        <div class="g-badge-row">
+          <div class="g-badge">Gen AI Korea 2024 · COEX Hall B2</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">생성형 AI<br>레드팀 챌린지</div>
           <div class="g-sub">국내 최초·최대 규모<br>AI 취약점 발굴 챌린지</div>
@@ -1644,7 +1682,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/2ElZQb" target="_blank">
       <div class="g-thumb tone-blue-3">
-        <div class="g-badge">2023.12.06 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2023.12.06 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">ChatGPT 1주년</div>
           <div class="g-sub">이렇게 활용해야 사업이 성공한다<br>풀버전 영상</div>
@@ -1657,7 +1698,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/1AN5P4" target="_blank">
       <div class="g-thumb tone-blue-2">
-        <div class="g-badge">2023.09 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2023.09 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">자동차와 AI</div>
           <div class="g-sub">자동차 산업과<br>인공지능의 융합</div>
@@ -1670,7 +1714,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/Zj1r5B" target="_blank">
       <div class="g-thumb tone-red-2">
-        <div class="g-badge">2023.04.27 · AI/DX NETWORKING NIGHT</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2023.04.27 · AI/DX NETWORKING NIGHT</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">영감을 주는 AI</div>
           <div class="g-sub">AWS 구태훈 · Executive Technology Partner<br>모두의연구소 × SELECTSTAR 네트워킹 나이트</div>
@@ -1683,7 +1730,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://event-us.kr/selectstar/event/54245" target="_blank">
       <div class="g-thumb tone-red-3">
-        <div class="g-badge">2023.01.17 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2023.01.17 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">2023년<br>트렌드와 AI</div>
           <div class="g-sub">모두연과 함께하는<br>신년 네트워킹 파티</div>
@@ -1696,7 +1746,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://www.youtube.com/watch?v=wQXpmF_k1_U" target="_blank">
       <div class="g-thumb tone-blue-2">
-        <div class="g-badge">2023.07.21 · KBS 별관공개홀 · 온·오프라인</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2023.07.21 · KBS 별관공개홀 · 온·오프라인</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">AI Talk<br>with Andrew Ng</div>
           <div class="g-sub">Keynote, Fireside Chat &amp; Networking<br>과기정통부 · nipa 후원</div>
@@ -1709,7 +1762,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/lbYZbX" target="_blank">
       <div class="g-thumb tone-red-1">
-        <div class="g-badge">2023.07 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2023.07 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">초거대 AI</div>
           <div class="g-sub">기술 변화와 비즈니스 임팩트<br>대형 모델 시대의 인사이트</div>
@@ -1722,7 +1778,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/0QZ5VA" target="_blank">
       <div class="g-thumb tone-red-2">
-        <div class="g-badge">2023.07.11 · WEBINAR</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2023.07.11 · WEBINAR</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">ChatGPT로 만든 사회</div>
           <div class="g-sub">기억을 가진 NPC와 상호작용<br>박준성 박사님 Full.Ver</div>
@@ -1740,7 +1799,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/Pdbyl5" target="_blank">
       <div class="g-thumb tone-blue-2">
-        <div class="g-badge">2022.12 · AI LEADERS FORUM</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2022.12 · AI LEADERS FORUM</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">NeurIPS 2022<br>AI Leaders Forum</div>
           <div class="g-sub">KAIST 오혜연·안성진 교수, 네이버 AI 하정우,<br>NYU 조경현 교수 · 세계 최대 AI 학회 특별 포럼</div>
@@ -1753,7 +1815,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/KYWrqX" target="_blank">
       <div class="g-thumb tone-red-3">
-        <div class="g-badge">2022.11 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2022.11 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">스포츠로<br>하나 되는 AI</div>
           <div class="g-sub">AI와 스포츠 산업의 만남<br>11월 특별 토크 세션</div>
@@ -1766,7 +1831,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/Bzj5b7" target="_blank">
       <div class="g-thumb tone-blue-3">
-        <div class="g-badge">2022.09 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2022.09 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">AI가 평가하는<br>면접과 채용의 미래</div>
           <div class="g-sub">제네시스랩 CEO 이영복<br>AI 면접과 채용 혁신</div>
@@ -1779,7 +1847,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/gDJ8yD" target="_blank">
       <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2022.10 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2022.10 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">AI 트렌드 &amp;<br>데이터 윤리</div>
           <div class="g-sub">핼러윈 컨셉 특별 에디션<br>귀여워진 대표님과 AI 데이터 윤리</div>
@@ -1792,7 +1863,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/lbY8oN" target="_blank">
       <div class="g-thumb tone-blue-3">
-        <div class="g-badge">2022.10 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2022.10 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">AI, 어디까지<br>알아보셨어요?</div>
           <div class="g-sub">씨드로닉스 박별터 CEO<br>해양 특화 인공지능 플랫폼 인사이트</div>
@@ -1805,7 +1879,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/rjJWJ5" target="_blank">
       <div class="g-thumb tone-blue-1">
-        <div class="g-badge">2022.08 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2022.08 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">CAR TECH 스타트업의<br>40억 투자 비결</div>
           <div class="g-sub">오토피디아 COO 조재영<br>자동차 산업 속 AI 적용 사례</div>
@@ -1818,7 +1895,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://tally.so/r/VLbWRM" target="_blank">
       <div class="g-thumb tone-red-1">
-        <div class="g-badge">2022.07 · AI IGNITE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2022.07 · AI IGNITE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">우리 회사도<br>AI 도입할 수 있을까?</div>
           <div class="g-sub">1억 3천만건 AI 데이터로 보는<br>산업계 AI 적용 트렌드</div>
@@ -1836,7 +1916,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a class="g-card" href="https://youtu.be/LY5E8Nu7gw0?si=fsnrWRM6po8BEdNY" target="_blank">
       <div class="g-thumb tone-blue-2">
-        <div class="g-badge">2021 · OPEN DATASET CONFERENCE</div>
+        <div class="g-badge-row">
+          <div class="g-badge">2021 · OPEN DATASET CONFERENCE</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
         <div>
           <div class="g-title">2021 오픈데이터셋<br>컨퍼런스</div>
           <div class="g-sub">#인공지능 #오픈데이터셋 #컨퍼런스 #셀렉트스타<br>2021 데이터셋 지원사업으로 구축된 9개의 데이터셋</div>
