@@ -655,13 +655,74 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     pointer-events: none;
   }
   .g-thumb > * { position: relative; z-index: 1; }
+  .g-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
   .g-badge { font-family:'Pretendard',sans-serif; font-size:12px; letter-spacing:.05em; color:rgba(255,255,255,.68); line-height:1.45; font-weight:700; }
+  .g-resource-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(234, 242, 255, .95);
+    color: #0c5fdb;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(3, 28, 89, .12);
+  }
+  .g-open-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255, 235, 235, .96);
+    border: 1px solid rgba(255, 116, 116, .82);
+    color: #d71920;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    box-shadow: 0 10px 24px rgba(128, 12, 18, .16);
+  }
+  .g-blog-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(234, 242, 255, .95);
+    border: 1px solid rgba(124, 169, 255, .72);
+    color: #0c5fdb;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(3, 28, 89, .12);
+  }
   .g-title { font-family:"Pretendard",sans-serif; font-size:22px; line-height:1.18; color:#fff; margin:10px 0 6px; font-weight:800; letter-spacing:-.02em; }
   .g-sub { font-size:14px; color:rgba(255,255,255,.76); line-height:1.65; font-weight:500; }
   .g-date { font-family:"Pretendard",sans-serif; font-size:12px; color:rgba(255,255,255,.66); margin-top:10px; font-weight:600; }
   .g-info { padding:18px 20px; background:var(--white); flex:1; display:flex; flex-direction:column; justify-content:space-between; border-radius: 0 0 16px 16px; }
   .g-info-title { font-size:16px; font-weight:700; color:var(--black); margin-bottom:8px; line-height:1.65; }
   .g-info-meta { font-family:"Pretendard",sans-serif; font-size:16px; letter-spacing:0; color:rgba(10,10,10,.52); margin-bottom:10px; }
+  .replay-cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+  }
   .gallery-year { font-family:"Pretendard",sans-serif; font-size:16px; letter-spacing:.06em; color:var(--black); margin:32px 0 12px; padding-bottom:10px; border-bottom:1px solid var(--rule); font-weight:700; }
   .gallery-year:first-child { margin-top:48px; }
   .tone-blue-1 { background: linear-gradient(135deg, #00001a 0%, #08245a 52%, #0c5fdb 100%); }
@@ -1328,6 +1389,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .yt-link { width: 100%; }
     .g-thumb { height: 204px; padding: 16px; }
     .g-badge, .g-date { font-size: 12px; }
+    .g-resource-badge,
+    .g-blog-badge,
+    .g-open-badge {
+      min-height: 22px;
+      padding: 4px 9px;
+      font-size: 11px;
+    }
     .g-title { font-size: 19px; line-height: 1.22; margin: 8px 0 4px; }
     .g-sub { font-size: 14px; line-height: 1.55; }
     .g-info { padding: 15px 16px; }
@@ -1449,6 +1517,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="info-row"><div class="info-mono">형식</div><div class="info-val">강연 + Q&A + 자유 네트워킹</div></div>
       <div style="margin-top:36px;"><a class="btn-white" href="#register" style="display:block;text-align:center;">사전 알림 신청하기 →</a></div>
     </div>
+  </div>
+</section>
+
+<!-- LATEST REPLAYS (white) -->
+<section class="s bg-white pad-sm" id="replays">
+  <p class="mono-label">EVENT REPLAY</p>
+  <h2 class="sec-title">지난 AI Ignite 다시보기</h2>
+  <p class="sec-body">AI·LLM·AI Safety 실무자와 업계 리더가 공유한 인사이트를 확인해보세요.</p>
+
+  <div class="gallery-grid">
+
+    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-financial-ai-regulation-validation/">
+      <div class="g-thumb tone-blue-1">
+        <div class="g-badge-row">
+          <div class="g-badge">2026.05.26 · OFFLINE EVENT</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+          <div class="g-blog-badge">블로그 글 보기</div>
+        </div>
+        <div>
+          <div class="g-title">AI 기본법에 대응하는<br>안전한 인프라 구성법</div>
+          <div class="g-sub">이진성 | 국민은행 EX-Data Engineer 및 AI Engineer<br>선착순 모집 · 5/26 현장 세션</div>
+        </div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[5월] AI 기본법에 대응하는 안전한 인프라 구성법</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://tally.so/r/816W9Y" target="_blank">
+      <div class="g-thumb tone-blue-1">
+        <div class="g-badge-row">
+          <div class="g-badge">2026.04.29 · LIVE WEBINAR</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
+        <div>
+          <div class="g-title">AI Safety의<br>격차를 만드는 데이터</div>
+          <div class="g-sub">LLM 리스크를 통제하는 실전 데이터 설계<br>김정훈 · 셀렉트스타 프로덕트 기획자</div>
+        </div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[4월] AI Safety의 격차를 만드는 데이터</div>
+      </div>
+    </a>
+
+    <a class="g-card" href="https://tally.so/r/kd0Bzd?utm_source=partner&utm_medium=organic&utm_campaign=lead_aiignite" target="_blank">
+      <div class="g-thumb tone-blue-2">
+        <div class="g-badge-row">
+          <div class="g-badge">2026.03.18 · WEBINAR</div>
+          <div class="g-resource-badge">발표자료 제공</div>
+          <div class="g-open-badge">📽️ 영상 다시보기</div>
+        </div>
+        <div>
+          <div class="g-title">커스텀 평가 체계로<br>LLM 서비스 평가 기준 만들기</div>
+          <div class="g-sub">이찬수 · SELECTSTAR 사업개발팀장</div>
+        </div>
+      </div>
+      <div class="g-info">
+        <div class="g-info-title">[3월] 커스텀 평가 체계로 LLM 서비스 평가 기준 만들기</div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="replay-cta-wrap">
+    <a class="btn-black" href="https://event.selectstar.ai/events.html">전체 행사 및 다시보기 보기 →</a>
   </div>
 </section>
 
