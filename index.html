@@ -718,6 +718,103 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .g-info { padding:18px 20px; background:var(--white); flex:1; display:flex; flex-direction:column; justify-content:space-between; border-radius: 0 0 16px 16px; }
   .g-info-title { font-size:16px; font-weight:700; color:var(--black); margin-bottom:8px; line-height:1.65; }
   .g-info-meta { font-family:"Pretendard",sans-serif; font-size:16px; letter-spacing:0; color:rgba(10,10,10,.52); margin-bottom:10px; }
+  .replay-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .replay-card {
+    border: 0;
+    border-radius: 18px;
+    background: var(--white);
+    box-shadow: 0 14px 34px rgba(0,0,26,.08);
+  }
+  .replay-card:hover { box-shadow: 0 18px 42px rgba(12,95,219,.16); }
+  .replay-card .g-thumb {
+    height: 216px;
+    padding: 14px;
+    justify-content: flex-start;
+    border-radius: 18px 18px 0 0;
+    background: #071331;
+  }
+  .replay-card .g-thumb::after {
+    background:
+      linear-gradient(180deg, rgba(0,0,26,.34) 0%, rgba(0,0,26,.08) 42%, rgba(0,0,26,.22) 100%);
+    z-index: 1;
+  }
+  .replay-card .g-badge-row {
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 100%;
+    z-index: 2;
+  }
+  .replay-card .g-open-badge,
+  .replay-card .g-blog-badge,
+  .replay-card .g-resource-badge {
+    min-height: 26px;
+    padding: 6px 10px;
+    background: rgba(255,255,255,.94);
+    border: 0;
+    color: #10182c;
+    font-size: 12px;
+    box-shadow: 0 10px 24px rgba(0,0,26,.16);
+  }
+  .replay-card .g-date {
+    color: #94a1b6;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .01em;
+    margin: 0 0 8px;
+  }
+  .replay-card .g-title {
+    max-width: none;
+    color: #10182c;
+    font-size: 19px;
+    line-height: 1.42;
+    margin: 0 0 12px;
+    letter-spacing: -.018em;
+    text-shadow: none;
+  }
+  .replay-visual {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .replay-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+  }
+  .replay-card .g-info {
+    gap: 0;
+    padding: 18px 18px 20px;
+    border-radius: 0 0 18px 18px;
+  }
+  .replay-speaker {
+    color: #10182c;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+  }
+  .replay-speaker span {
+    color: #8e9bb0;
+    font-weight: 700;
+  }
+  .replay-note {
+    color: #94a1b6;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.55;
+    letter-spacing: -.015em;
+  }
+  .replay-note.is-red { color: #ef3f43; }
   .replay-cta-wrap {
     display: flex;
     justify-content: center;
@@ -1302,6 +1399,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .spk-featured-wrap { grid-row: span 1; padding: 28px 24px; }
     .spk-cta-banner { flex-direction:column; align-items:flex-start; padding:32px 24px; }
     .gallery-grid { grid-template-columns:repeat(2,1fr); }
+    .replay-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
     .hero-bottom { flex-direction:column; gap:0; align-items:center; }
     .hero-meta { align-items:center; text-align:center; }
     footer { flex-direction:column; gap:20px; }
@@ -1385,9 +1483,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .spk-cta-heading { font-size: clamp(24px, 8.6vw, 34px); margin-bottom: 10px; }
     .spk-cta-body { font-size: 16px; line-height: 1.72; }
     .gallery-grid { grid-template-columns:1fr; }
+    .replay-grid { grid-template-columns:1fr; max-width: none; }
     .yt-head { margin-top: 22px; }
     .yt-link { width: 100%; }
     .g-thumb { height: 204px; padding: 16px; }
+    .replay-card { border-radius: 18px; }
+    .replay-card .g-thumb {
+      height: 218px;
+      padding: 14px;
+      border-radius: 18px 18px 0 0;
+    }
+    .replay-card .g-badge-row {
+      max-width: 100%;
+      gap: 8px;
+    }
+    .replay-card .g-open-badge,
+    .replay-card .g-blog-badge,
+    .replay-card .g-resource-badge {
+      min-height: 26px;
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+    .replay-card .g-date {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .replay-card .g-title {
+      max-width: none;
+      font-size: 19px;
+    }
+    .replay-card .g-info {
+      padding: 18px 18px 20px;
+      border-radius: 0 0 18px 18px;
+    }
+    .replay-speaker { font-size: 14px; }
+    .replay-note { font-size: 13px; }
     .g-badge, .g-date { font-size: 12px; }
     .g-resource-badge,
     .g-blog-badge,
@@ -1463,7 +1593,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#speakers">연사</a></li>
     <li><a href="events.html">행사</a></li>
   </ul>
-  <a class="nav-cta" href="#register">참가 신청</a>
+  <a class="nav-cta" href="https://page.stibee.com/subscriptions/212479">뉴스레터 구독</a>
 </nav>
 
 <!-- HERO (fire canvas lives here) -->
@@ -1515,7 +1645,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="info-row"><div class="info-mono">장소</div><div class="info-val">서울 · 오프라인 + 온라인 동시</div></div>
       <div class="info-row"><div class="info-mono">참가비</div><div class="info-val">무료 (사전 신청 필수)</div></div>
       <div class="info-row"><div class="info-mono">형식</div><div class="info-val">강연 + Q&A + 자유 네트워킹</div></div>
-      <div style="margin-top:36px;"><a class="btn-white" href="#register" style="display:block;text-align:center;">사전 알림 신청하기 →</a></div>
+      <div style="margin-top:36px;"><a class="btn-white" href="https://page.stibee.com/subscriptions/212479" style="display:block;text-align:center;">뉴스레터에서 소식 받아보기 →</a></div>
     </div>
   </div>
 </section>
@@ -1526,55 +1656,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2 class="sec-title">지난 AI Ignite 다시보기</h2>
   <p class="sec-body">AI·LLM·AI Safety 실무자와 업계 리더가 공유한 인사이트를 확인해보세요.</p>
 
-  <div class="gallery-grid">
+  <div class="gallery-grid replay-grid">
 
-    <a class="g-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-financial-ai-regulation-validation/">
+    <a class="g-card replay-card" href="https://selectstar.ai/blog/ai-ignite/ai-ignite-financial-ai-regulation-validation/">
       <div class="g-thumb tone-blue-1">
+        <div class="replay-visual" aria-hidden="true">
+          <img src="26.05.AI_IGNITE/th01.1-card.png" alt="">
+        </div>
         <div class="g-badge-row">
-          <div class="g-badge">2026.05.26 · OFFLINE EVENT</div>
           <div class="g-open-badge">📽️ 영상 다시보기</div>
           <div class="g-blog-badge">블로그 글 보기</div>
         </div>
-        <div>
-          <div class="g-title">AI 기본법에 대응하는<br>안전한 인프라 구성법</div>
-          <div class="g-sub">이진성 | 국민은행 EX-Data Engineer 및 AI Engineer<br>선착순 모집 · 5/26 현장 세션</div>
-        </div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[5월] AI 기본법에 대응하는 안전한 인프라 구성법</div>
+        <div class="g-date">2026.05.26 · OFFLINE EVENT</div>
+        <div class="g-title">AI 기본법에 대응하는 안전한 인프라 구성법</div>
+        <div class="replay-speaker">이진성 <span>| 국민은행 EX-Data Engineer 및 AI Engineer</span></div>
+        <div class="replay-note is-red">선착순 모집 · 5/26 현장 세션</div>
       </div>
     </a>
 
-    <a class="g-card" href="https://tally.so/r/816W9Y" target="_blank">
-      <div class="g-thumb tone-blue-1">
+    <a class="g-card replay-card" href="https://tally.so/r/816W9Y" target="_blank">
+      <div class="g-thumb tone-blue-2">
+        <div class="replay-visual" aria-hidden="true">
+          <img src="26.05.AI_IGNITE/th02.1-card.png" alt="">
+        </div>
         <div class="g-badge-row">
-          <div class="g-badge">2026.04.29 · LIVE WEBINAR</div>
           <div class="g-open-badge">📽️ 영상 다시보기</div>
         </div>
-        <div>
-          <div class="g-title">AI Safety의<br>격차를 만드는 데이터</div>
-          <div class="g-sub">LLM 리스크를 통제하는 실전 데이터 설계<br>김정훈 · 셀렉트스타 프로덕트 기획자</div>
-        </div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[4월] AI Safety의 격차를 만드는 데이터</div>
+        <div class="g-date">2026.04.29 · LIVE WEBINAR</div>
+        <div class="g-title">AI Safety의 격차를 만드는 데이터</div>
+        <div class="replay-speaker">김정훈 <span>| 셀렉트스타 프로덕트 기획자</span></div>
+        <div class="replay-note">LLM 리스크를 통제하는 실전 데이터 설계</div>
       </div>
     </a>
 
-    <a class="g-card" href="https://tally.so/r/kd0Bzd?utm_source=partner&utm_medium=organic&utm_campaign=lead_aiignite" target="_blank">
+    <a class="g-card replay-card" href="https://tally.so/r/kd0Bzd?utm_source=partner&utm_medium=organic&utm_campaign=lead_aiignite" target="_blank">
       <div class="g-thumb tone-blue-2">
+        <div class="replay-visual" aria-hidden="true">
+          <img src="26.05.AI_IGNITE/th03-card.png" alt="">
+        </div>
         <div class="g-badge-row">
-          <div class="g-badge">2026.03.18 · WEBINAR</div>
           <div class="g-resource-badge">발표자료 제공</div>
           <div class="g-open-badge">📽️ 영상 다시보기</div>
         </div>
-        <div>
-          <div class="g-title">커스텀 평가 체계로<br>LLM 서비스 평가 기준 만들기</div>
-          <div class="g-sub">이찬수 · SELECTSTAR 사업개발팀장</div>
-        </div>
       </div>
       <div class="g-info">
-        <div class="g-info-title">[3월] 커스텀 평가 체계로 LLM 서비스 평가 기준 만들기</div>
+        <div class="g-date">2026.03.18 · WEBINAR</div>
+        <div class="g-title">커스텀 평가 체계로 LLM 서비스 평가 기준 만들기</div>
+        <div class="replay-speaker">이찬수 <span>| SELECTSTAR 사업개발팀장</span></div>
+        <div class="replay-note">LLM 서비스 평가 기준을 설계하는 커스텀 평가 체계</div>
       </div>
     </a>
 
